@@ -1,0 +1,3 @@
+[submodule "simple-crypto"]
+	path = simple-crypto
+	url = https://github.com/synodriver/simple-crypto

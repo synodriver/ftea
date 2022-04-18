@@ -1,0 +1,46 @@
+<h1 align="center"><i>✨ ftea ✨ </i></h1>
+
+<h3 align="center">The python binding for <a href="https://github.com/synodriver/simple-crypto">simple-crypto</a> </h3>
+
+
+
+[![pypi](https://img.shields.io/pypi/v/ftea.svg)](https://pypi.org/project/ftea/)
+![python](https://img.shields.io/pypi/pyversions/ftea)
+![implementation](https://img.shields.io/pypi/implementation/ftea)
+![wheel](https://img.shields.io/pypi/wheel/ftea)
+![license](https://img.shields.io/github/license/synodriver/ftea.svg)
+![action](https://img.shields.io/github/workflow/status/synodriver/ftea/build%20wheel)
+
+
+### 使用
+
+- 加密解密
+```python
+from ftea import TEA
+
+tea = TEA(bytes(16))
+
+encoded = tea.encrypt_qq(b"haha")
+print(tea.decrypt_qq(encoded))
+
+```
+
+### 公开函数
+```python
+class TEA:
+    key: bytes = ...
+    @classmethod
+    def __init__(self, key: bytes) -> None: ...
+    def decrypt(self, text: bytes, sumtable: bytes) -> bytes: ...
+    def decrypt_into(self, text: bytes, sumtable: bytes, out: bytearray) -> int: ...
+    def decrypt_native_endian(self, text: bytes, sumtable: bytes) -> bytes: ...
+    def decrypt_native_endian_into(self,text: bytes, sumtable: bytes, out: bytearray) -> int: ...
+    def decrypt_qq(self, text: bytes) -> bytes: ...
+    def decrypt_qq_into(self, text: bytes, out: bytearray) -> int: ...
+    def encrypt(self, text: bytes, sumtable: bytes) -> bytes: ...
+    def encrypt_into(self, text: bytes, sumtable: bytes, out: bytearray) -> int: ...
+    def encrypt_native_endian(self, text: bytes, sumtable: bytes) -> bytes: ...
+    def encrypt_native_endian_into(self, text: bytes, sumtable: bytes, out: bytearray) -> int: ...
+    def encrypt_qq(self,  text: bytes) -> bytes: ...
+    def encrypt_qq_into(self, text: bytes, out: bytearray) -> int: ...
+```
