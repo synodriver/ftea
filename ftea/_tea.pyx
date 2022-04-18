@@ -189,3 +189,6 @@ cdef class TEA:
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer_updated
+
+cpdef inline int64_t encrypt_len(int64_t src):
+    return encrypt_qq_len(src)
