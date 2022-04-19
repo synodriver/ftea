@@ -4,9 +4,9 @@ from libc.string cimport memcpy
 cimport cython
 
 from cpython.object cimport PyObject
-from cpython.bytes cimport PyBytes_FromStringAndSize, PyBytes_AsString
+from cpython.bytes cimport PyBytes_FromStringAndSize, PyBytes_AS_STRING
 
-from ftea.tea cimport tea_encrypt_qq,tea_encrypt, tea_encrypt_native_endian, tea_decrypt_qq,tea_decrypt,tea_decrypt_native_endian, encrypt_qq_len
+from ftea.tea cimport tea_encrypt_qq,tea_encrypt, tea_encrypt_native_endian, tea_decrypt_qq,tea_decrypt,tea_decrypt_native_endian, encrypt_qq_len, is_le,swap_uint32
 
 @cython.final
 cdef class TEA:
@@ -17,12 +17,35 @@ cdef class TEA:
 
     @property
     def key(self):
-        return PyBytes_FromStringAndSize(<char*>self._key, 16)
+        cdef:
+            bytes bt
+            char* buffer
+        if is_le():  # small endian
+            bt = PyBytes_FromStringAndSize(NULL, 16)
+            if <PyObject*>bt == NULL:
+                raise MemoryError
+            buffer = PyBytes_AS_STRING(bt)
+            (<uint32_t *>buffer)[0] = swap_uint32((<uint32_t *> self._key)[0])
+            (<uint32_t *>buffer)[1] = swap_uint32((<uint32_t *> self._key)[1])
+            (<uint32_t *>buffer)[2] = swap_uint32((<uint32_t *> self._key)[2])
+            (<uint32_t *>buffer)[3] = swap_uint32((<uint32_t *> self._key)[3])
+            return bt
+        else:
+            bt =  PyBytes_FromStringAndSize(<char*>self._key, 16)
+            if <PyObject*>bt == NULL:
+                raise MemoryError
+            return bt
 
     @key.setter
     def key(self, const uint8_t[::1] key):
         assert key.shape[0] == 16, "key must be 16 bytes len"
-        memcpy(self._key, &key[0], 16)
+        if is_le():  # small endian
+            (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])
+            (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])
+            (<uint32_t *> self._key)[2] = swap_uint32((<uint32_t *> &key[0])[2])
+            (<uint32_t *> self._key)[3] = swap_uint32((<uint32_t *> &key[0])[3])
+        else:
+            memcpy(self._key, &key[0], 16)
 
     cpdef inline bytes encrypt_qq(self, const uint8_t[::1] text):
         cdef:
@@ -32,7 +55,7 @@ cdef class TEA:
         if <PyObject*>buffer == NULL:
             raise MemoryError
 
-        cdef int64_t buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, <uint8_t*>PyBytes_AsString(buffer), out_len)
+        cdef int64_t buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, <uint8_t*>PyBytes_AS_STRING(buffer), out_len)
         if buffer_updated< 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -59,7 +82,7 @@ cdef class TEA:
         if <PyObject*>buffer == NULL:
             raise MemoryError
 
-        cdef int64_t buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len,<uint8_t*>PyBytes_AsString(buffer), out_len )
+        cdef int64_t buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len,<uint8_t*>PyBytes_AS_STRING(buffer), out_len )
         if buffer_updated< 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -89,7 +112,7 @@ cdef class TEA:
 
         cdef int64_t buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
                                                   <const uint8_t *> &text[0], src_len,
-                                                  <uint8_t *> PyBytes_AsString(buffer), out_len)
+                                                  <uint8_t *> PyBytes_AS_STRING(buffer), out_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -116,7 +139,7 @@ cdef class TEA:
             raise MemoryError
 
         cdef int64_t buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
-                                                     <uint8_t *> PyBytes_AsString(buffer), src_len)
+                                                     <uint8_t *> PyBytes_AS_STRING(buffer), src_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -142,7 +165,7 @@ cdef class TEA:
         if <PyObject*>buffer == NULL:
             raise MemoryError
 
-        cdef int64_t buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len,<uint8_t*>PyBytes_AsString(buffer), src_len)
+        cdef int64_t buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len,<uint8_t*>PyBytes_AS_STRING(buffer), src_len)
         if buffer_updated< 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -171,7 +194,7 @@ cdef class TEA:
 
         cdef int64_t buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
                                                   <const uint8_t *> &text[0], src_len,
-                                                  <uint8_t *> PyBytes_AsString(buffer), src_len)
+                                                  <uint8_t *> PyBytes_AS_STRING(buffer), src_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]

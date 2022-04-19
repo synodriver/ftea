@@ -20,5 +20,26 @@ int64_t encrypt_qq_len(int64_t src_len)
     int64_t fill = 10 - (src_len + 1) % 8;
     return fill + src_len + 7;
 }
+uint8_t is_le()
+{
+    int16_t data = 0x1234;
+    int8_t *p = (int8_t *)&data;
+    if (p[0]<p[1])
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+#ifdef _WIN32
+    #define swap_uint32 _byteswap_ulong
+#else
+    #define swap_uint32 __builtin_bswap32
+#endif /* _WIN32 */
     """
     int64_t encrypt_qq_len(int64_t src_len)
+    uint8_t is_le()
+    uint32_t swap_uint32(uint32_t data)

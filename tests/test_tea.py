@@ -11,8 +11,8 @@ import ftea
 
 class TestTea(TestCase):
     def setUp(self) -> None:
-        self.old = pytea.TEA(bytes(16))
-        self.new = ftea.TEA(bytes(16))
+        self.old = pytea.TEA(b'1234567812345678')
+        self.new = ftea.TEA(b'1234567812345678')
 
     def test_decrypt(self):
         for i in range(10000):
