@@ -6,7 +6,7 @@ cimport cython
 from cpython.object cimport PyObject
 from cpython.bytes cimport PyBytes_FromStringAndSize, PyBytes_AS_STRING
 
-from ftea.tea cimport tea_encrypt_qq,tea_encrypt, tea_encrypt_native_endian, tea_decrypt_qq,tea_decrypt,tea_decrypt_native_endian, encrypt_qq_len, is_le,swap_uint32
+from ftea.tea cimport tea_encrypt_qq,tea_encrypt, tea_encrypt_native_endian, tea_decrypt_qq,tea_decrypt,tea_decrypt_native_endian, encrypt_qq_len, swap_uint32, SHOULD_SWAP
 
 @cython.final
 cdef class TEA:
@@ -20,7 +20,7 @@ cdef class TEA:
         cdef:
             bytes bt
             char* buffer
-        if is_le():  # small endian
+        if SHOULD_SWAP:  # small endian
             bt = PyBytes_FromStringAndSize(NULL, 16)
             if <PyObject*>bt == NULL:
                 raise MemoryError
@@ -39,7 +39,7 @@ cdef class TEA:
     @key.setter
     def key(self, const uint8_t[::1] key):
         assert key.shape[0] == 16, "key must be 16 bytes len"
-        if is_le():  # small endian
+        if SHOULD_SWAP:  # small endian
             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])
             (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])
             (<uint32_t *> self._key)[2] = swap_uint32((<uint32_t *> &key[0])[2])

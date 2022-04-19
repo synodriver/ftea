@@ -658,6 +658,12 @@ uint8_t is_le()
 #else
     #define swap_uint32 __builtin_bswap32
 #endif /* _WIN32 */
+
+#ifdef WORDS_BIGENDIAN
+    #define SHOULD_SWAP 0
+#else
+    #define SHOULD_SWAP 1
+#endif
     
 #include "pythread.h"
 #include <stdlib.h>
@@ -2345,16 +2351,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
   /* "ftea/_tea.pyx":23
  *             bytes bt
  *             char* buffer
- *         if is_le():  # small endian             # <<<<<<<<<<<<<<
+ *         if SHOULD_SWAP:  # small endian             # <<<<<<<<<<<<<<
  *             bt = PyBytes_FromStringAndSize(NULL, 16)
  *             if <PyObject*>bt == NULL:
  */
-  __pyx_t_1 = (is_le() != 0);
+  __pyx_t_1 = (SHOULD_SWAP != 0);
   if (__pyx_t_1) {
 
     /* "ftea/_tea.pyx":24
  *             char* buffer
- *         if is_le():  # small endian
+ *         if SHOULD_SWAP:  # small endian
  *             bt = PyBytes_FromStringAndSize(NULL, 16)             # <<<<<<<<<<<<<<
  *             if <PyObject*>bt == NULL:
  *                 raise MemoryError
@@ -2365,7 +2371,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
     __pyx_t_2 = 0;
 
     /* "ftea/_tea.pyx":25
- *         if is_le():  # small endian
+ *         if SHOULD_SWAP:  # small endian
  *             bt = PyBytes_FromStringAndSize(NULL, 16)
  *             if <PyObject*>bt == NULL:             # <<<<<<<<<<<<<<
  *                 raise MemoryError
@@ -2384,7 +2390,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
       PyErr_NoMemory(); __PYX_ERR(0, 26, __pyx_L1_error)
 
       /* "ftea/_tea.pyx":25
- *         if is_le():  # small endian
+ *         if SHOULD_SWAP:  # small endian
  *             bt = PyBytes_FromStringAndSize(NULL, 16)
  *             if <PyObject*>bt == NULL:             # <<<<<<<<<<<<<<
  *                 raise MemoryError
@@ -2452,7 +2458,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
     /* "ftea/_tea.pyx":23
  *             bytes bt
  *             char* buffer
- *         if is_le():  # small endian             # <<<<<<<<<<<<<<
+ *         if SHOULD_SWAP:  # small endian             # <<<<<<<<<<<<<<
  *             bt = PyBytes_FromStringAndSize(NULL, 16)
  *             if <PyObject*>bt == NULL:
  */
@@ -2537,7 +2543,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  *     @key.setter
  *     def key(self, const uint8_t[::1] key):             # <<<<<<<<<<<<<<
  *         assert key.shape[0] == 16, "key must be 16 bytes len"
- *         if is_le():  # small endian
+ *         if SHOULD_SWAP:  # small endian
  */
 
 /* Python wrapper */
@@ -2580,7 +2586,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
  *     @key.setter
  *     def key(self, const uint8_t[::1] key):
  *         assert key.shape[0] == 16, "key must be 16 bytes len"             # <<<<<<<<<<<<<<
- *         if is_le():  # small endian
+ *         if SHOULD_SWAP:  # small endian
  *             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
@@ -2595,16 +2601,16 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
   /* "ftea/_tea.pyx":42
  *     def key(self, const uint8_t[::1] key):
  *         assert key.shape[0] == 16, "key must be 16 bytes len"
- *         if is_le():  # small endian             # <<<<<<<<<<<<<<
+ *         if SHOULD_SWAP:  # small endian             # <<<<<<<<<<<<<<
  *             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])
  *             (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])
  */
-  __pyx_t_1 = (is_le() != 0);
+  __pyx_t_1 = (SHOULD_SWAP != 0);
   if (__pyx_t_1) {
 
     /* "ftea/_tea.pyx":43
  *         assert key.shape[0] == 16, "key must be 16 bytes len"
- *         if is_le():  # small endian
+ *         if SHOULD_SWAP:  # small endian
  *             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])             # <<<<<<<<<<<<<<
  *             (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])
  *             (<uint32_t *> self._key)[2] = swap_uint32((<uint32_t *> &key[0])[2])
@@ -2613,7 +2619,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
     (((uint32_t *)__pyx_v_self->_key)[0]) = swap_uint32((((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_key.data) + __pyx_t_2)) )))))[0]));
 
     /* "ftea/_tea.pyx":44
- *         if is_le():  # small endian
+ *         if SHOULD_SWAP:  # small endian
  *             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])
  *             (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])             # <<<<<<<<<<<<<<
  *             (<uint32_t *> self._key)[2] = swap_uint32((<uint32_t *> &key[0])[2])
@@ -2645,7 +2651,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
     /* "ftea/_tea.pyx":42
  *     def key(self, const uint8_t[::1] key):
  *         assert key.shape[0] == 16, "key must be 16 bytes len"
- *         if is_le():  # small endian             # <<<<<<<<<<<<<<
+ *         if SHOULD_SWAP:  # small endian             # <<<<<<<<<<<<<<
  *             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])
  *             (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])
  */
@@ -2670,7 +2676,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
  *     @key.setter
  *     def key(self, const uint8_t[::1] key):             # <<<<<<<<<<<<<<
  *         assert key.shape[0] == 16, "key must be 16 bytes len"
- *         if is_le():  # small endian
+ *         if SHOULD_SWAP:  # small endian
  */
 
   /* function exit code */

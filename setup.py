@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import sys
 from collections import defaultdict
 
 from Cython.Build import cythonize
@@ -24,10 +25,15 @@ class build_ext_compiler_check(build_ext):
         super().build_extensions()
 
 
+macro_base = []
+if sys.byteorder != "little":
+    macro_base.append(("WORDS_BIGENDIAN", None))
+
 extensions = [
     Extension("ftea._tea", ["ftea/_tea.pyx", 'simple-crypto/tea.c'],
               include_dirs=[f"./simple-crypto"],
               library_dirs=[f"./simple-crypto"],
+              define_macros=macro_base
               ),
 ]
 

@@ -39,7 +39,14 @@ uint8_t is_le()
 #else
     #define swap_uint32 __builtin_bswap32
 #endif /* _WIN32 */
+
+#ifdef WORDS_BIGENDIAN
+    #define SHOULD_SWAP 0
+#else
+    #define SHOULD_SWAP 1
+#endif
     """
     int64_t encrypt_qq_len(int64_t src_len)
     uint8_t is_le()
     uint32_t swap_uint32(uint32_t data)
+    int SHOULD_SWAP
