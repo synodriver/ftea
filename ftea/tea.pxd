@@ -20,18 +20,11 @@ int64_t encrypt_qq_len(int64_t src_len)
     int64_t fill = 10 - (src_len + 1) % 8;
     return fill + src_len + 7;
 }
+
 uint8_t is_le()
 {
-    int16_t data = 0x1234;
-    int8_t *p = (int8_t *)&data;
-    if (p[0]<p[1])
-    {
-        return 0;
-    }
-    else
-    {
-        return 1;
-    }
+    uint16_t data=1;
+    return *(uint8_t*)&data;
 }
 
 #ifdef _WIN32
