@@ -30,11 +30,13 @@ if sys.byteorder != "little":
     macro_base.append(("WORDS_BIGENDIAN", None))
 
 extensions = [
-    Extension("ftea._tea", ["ftea/_tea.pyx", 'simple-crypto/tea.c'],
-              include_dirs=[f"./simple-crypto"],
-              library_dirs=[f"./simple-crypto"],
-              define_macros=macro_base
-              ),
+    Extension(
+        "ftea._tea",
+        ["ftea/_tea.pyx", 'simple-crypto/tea.c'],
+        include_dirs=["./simple-crypto"],
+        library_dirs=["./simple-crypto"],
+        define_macros=macro_base,
+    )
 ]
 
 

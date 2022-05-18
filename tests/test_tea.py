@@ -15,7 +15,7 @@ class TestTea(TestCase):
         self.new = ftea.TEA(b'1234567812345678')
 
     def test_decrypt(self):
-        for i in range(10000):
+        for _ in range(10000):
             rand_data = bytes(randint(0, 255) for _ in range(randint(1, 1000)))
             encoded = self.old.encrypt(rand_data)
             self.assertEqual(self.new.decrypt_qq(encoded), rand_data)
@@ -23,11 +23,11 @@ class TestTea(TestCase):
     def test_speed(self):
         data = bytes(1 for _ in range(10000))
         start = time.time()
-        for i in range(1000):
+        for _ in range(1000):
             self.old.encrypt(data)
         print(f"old spend {time.time() - start}")
         start = time.time()
-        for i in range(1000):
+        for _ in range(1000):
             self.new.encrypt_qq(data)
         print(f"new spend {time.time() - start}")
 
