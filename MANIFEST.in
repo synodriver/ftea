@@ -1,1 +1,3 @@
 recursive-include ftea  *
+recursive-include simple-crypto  *
+include README.markdown

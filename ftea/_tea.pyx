@@ -52,10 +52,13 @@ cdef class TEA:
             int64_t src_len = <int64_t>text.shape[0]
             int64_t out_len = encrypt_qq_len(src_len)
             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t>out_len)
+            int64_t buffer_updated
+            uint8_t* buffer_ptr
         if <PyObject*>buffer == NULL:
             raise MemoryError
-
-        cdef int64_t buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, <uint8_t*>PyBytes_AS_STRING(buffer), out_len)
+        buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
+        with nogil:
+            buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, buffer_ptr, out_len)
         if buffer_updated< 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -64,11 +67,13 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = <int64_t> out.shape[0]
+            int64_t buffer_updated
 
         if out_len < encrypt_qq_len(src_len):
             raise ValueError("output buffer is too small")
-        cdef int64_t buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
-                                                     <uint8_t *> &out[0], out_len)
+        with nogil:
+            buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
+                                                        <uint8_t *> &out[0], out_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer_updated
@@ -79,10 +84,13 @@ cdef class TEA:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = encrypt_qq_len(src_len)
             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> out_len)
+            int64_t buffer_updated
+            uint8_t* buffer_ptr
         if <PyObject*>buffer == NULL:
             raise MemoryError
-
-        cdef int64_t buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len,<uint8_t*>PyBytes_AS_STRING(buffer), out_len )
+        buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
+        with nogil:
+            buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, out_len)
         if buffer_updated< 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -92,11 +100,13 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = <int64_t> out.shape[0]
+            int64_t buffer_updated
         if out_len < encrypt_qq_len(src_len):
             raise ValueError("output buffer is too small")
-        cdef int64_t buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
-                                                  <const uint8_t *> &text[0], src_len,
-                                                  <uint8_t *> &out[0], out_len)
+        with nogil:
+            buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
+                                                    <const uint8_t *> &text[0], src_len,
+                                                    <uint8_t *> &out[0], out_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer_updated
@@ -107,12 +117,15 @@ cdef class TEA:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = encrypt_qq_len(src_len)
             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> out_len)
+            int64_t buffer_updated
+            uint8_t *buffer_ptr
         if <PyObject*>buffer == NULL:
             raise MemoryError
-
-        cdef int64_t buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
-                                                  <const uint8_t *> &text[0], src_len,
-                                                  <uint8_t *> PyBytes_AS_STRING(buffer), out_len)
+        buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
+        with nogil:
+            buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
+                                                    <const uint8_t *> &text[0], src_len,
+                                                    buffer_ptr, out_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -122,11 +135,13 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = <int64_t> out.shape[0]
+            int64_t buffer_updated
         if out_len < encrypt_qq_len(src_len):
             raise ValueError("output buffer is too small")
-        cdef int64_t buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
-                                                  <const uint8_t *> &text[0], src_len,
-                                                  <uint8_t *> &out[0], out_len)
+        with nogil:
+            buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
+                                                    <const uint8_t *> &text[0], src_len,
+                                                    <uint8_t *> &out[0], out_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer_updated
@@ -135,11 +150,14 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> src_len)
+            int64_t buffer_updated
+            uint8_t *buffer_ptr
         if <PyObject*>buffer == NULL:
             raise MemoryError
-
-        cdef int64_t buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
-                                                     <uint8_t *> PyBytes_AS_STRING(buffer), src_len)
+        buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
+        with nogil:
+            buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
+                                                        buffer_ptr, src_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -148,11 +166,13 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = <int64_t> out.shape[0]
+            int64_t buffer_updated
 
         if out_len < src_len:
             raise ValueError("output buffer is too small")
-        cdef int64_t buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
-                                                     <uint8_t *> &out[0], out_len)
+        with nogil:
+            buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
+                                                        <uint8_t *> &out[0], out_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer_updated
@@ -162,10 +182,13 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> src_len)
+            int64_t buffer_updated
+            uint8_t* buffer_ptr
         if <PyObject*>buffer == NULL:
             raise MemoryError
-
-        cdef int64_t buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len,<uint8_t*>PyBytes_AS_STRING(buffer), src_len)
+        buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
+        with nogil:
+            buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, src_len)
         if buffer_updated< 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -175,11 +198,13 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = <int64_t> out.shape[0]
+            int64_t buffer_updated
         if out_len < src_len:
             raise ValueError("output buffer is too small")
-        cdef int64_t buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
-                                                  <const uint8_t *> &text[0], src_len,
-                                                  <uint8_t *> &out[0], out_len)
+        with nogil:
+            buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
+                                                    <const uint8_t *> &text[0], src_len,
+                                                    <uint8_t *> &out[0], out_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer_updated
@@ -189,12 +214,15 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> src_len)
+            int64_t buffer_updated
+            uint8_t *buffer_ptr 
         if <PyObject *> buffer == NULL:
             raise MemoryError
-
-        cdef int64_t buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
-                                                  <const uint8_t *> &text[0], src_len,
-                                                  <uint8_t *> PyBytes_AS_STRING(buffer), src_len)
+        buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
+        with nogil:
+            buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
+                                                    <const uint8_t *> &text[0], src_len,
+                                                    buffer_ptr, src_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
@@ -204,14 +232,16 @@ cdef class TEA:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = <int64_t> out.shape[0]
+            int64_t buffer_updated
         if out_len < src_len:
             raise ValueError("output buffer is too small")
-        cdef int64_t buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
-                                                  <const uint8_t *> &text[0], src_len,
-                                                  <uint8_t *> &out[0], out_len)
+        with nogil:
+            buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
+                                                    <const uint8_t *> &text[0], src_len,
+                                                    <uint8_t *> &out[0], out_len)
         if buffer_updated < 0:
             raise ValueError("encrypt wrong")
         return buffer_updated
 
-cpdef inline int64_t encrypt_len(int64_t src):
+cpdef inline int64_t encrypt_len(int64_t src) nogil:
     return encrypt_qq_len(src)
