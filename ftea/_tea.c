@@ -1076,8 +1076,8 @@ struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
 struct __pyx_memoryviewslice_obj;
 
-/* "ftea/_tea.pyx":12
- * 
+/* "ftea/_tea.pyx":14
+ * @cython.no_gc
  * @cython.final
  * cdef class TEA:             # <<<<<<<<<<<<<<
  *     cdef uint8_t _key[16]
@@ -1168,8 +1168,8 @@ struct __pyx_memoryviewslice_obj {
 
 
 
-/* "ftea/_tea.pyx":12
- * 
+/* "ftea/_tea.pyx":14
+ * @cython.no_gc
  * @cython.final
  * cdef class TEA:             # <<<<<<<<<<<<<<
  *     cdef uint8_t _key[16]
@@ -2309,7 +2309,7 @@ static PyObject *__pyx_tuple__29;
 static PyObject *__pyx_codeobj__30;
 /* Late includes */
 
-/* "ftea/_tea.pyx":15
+/* "ftea/_tea.pyx":17
  *     cdef uint8_t _key[16]
  * 
  *     def __cinit__(self, const uint8_t[::1] key):             # <<<<<<<<<<<<<<
@@ -2346,18 +2346,18 @@ static int __pyx_pw_4ftea_4_tea_3TEA_1__cinit__(PyObject *__pyx_v_self, PyObject
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 15, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 17, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_key = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_key.memview)) __PYX_ERR(0, 15, __pyx_L3_error)
+    __pyx_v_key = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_key.memview)) __PYX_ERR(0, 17, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 15, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 17, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2379,19 +2379,19 @@ static int __pyx_pf_4ftea_4_tea_3TEA___cinit__(struct __pyx_obj_4ftea_4_tea_TEA 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "ftea/_tea.pyx":16
+  /* "ftea/_tea.pyx":18
  * 
  *     def __cinit__(self, const uint8_t[::1] key):
  *         self.key = key             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  __pyx_t_1 = __pyx_memoryview_fromslice(__pyx_v_key, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn_uint8_t__const__, (int (*)(char *, PyObject *)) NULL, 0);; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = __pyx_memoryview_fromslice(__pyx_v_key, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn_uint8_t__const__, (int (*)(char *, PyObject *)) NULL, 0);; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_key, __pyx_t_1) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_key, __pyx_t_1) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "ftea/_tea.pyx":15
+  /* "ftea/_tea.pyx":17
  *     cdef uint8_t _key[16]
  * 
  *     def __cinit__(self, const uint8_t[::1] key):             # <<<<<<<<<<<<<<
@@ -2412,7 +2412,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA___cinit__(struct __pyx_obj_4ftea_4_tea_TEA 
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":19
+/* "ftea/_tea.pyx":21
  * 
  *     @property
  *     def key(self):             # <<<<<<<<<<<<<<
@@ -2445,7 +2445,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "ftea/_tea.pyx":23
+  /* "ftea/_tea.pyx":25
  *             bytes bt
  *             char* buffer
  *         if SHOULD_SWAP:  # small endian             # <<<<<<<<<<<<<<
@@ -2455,19 +2455,19 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
   __pyx_t_1 = (SHOULD_SWAP != 0);
   if (__pyx_t_1) {
 
-    /* "ftea/_tea.pyx":24
+    /* "ftea/_tea.pyx":26
  *             char* buffer
  *         if SHOULD_SWAP:  # small endian
  *             bt = PyBytes_FromStringAndSize(NULL, 16)             # <<<<<<<<<<<<<<
  *             if <PyObject*>bt == NULL:
  *                 raise MemoryError
  */
-    __pyx_t_2 = PyBytes_FromStringAndSize(NULL, 16); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __pyx_t_2 = PyBytes_FromStringAndSize(NULL, 16); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_bt = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "ftea/_tea.pyx":25
+    /* "ftea/_tea.pyx":27
  *         if SHOULD_SWAP:  # small endian
  *             bt = PyBytes_FromStringAndSize(NULL, 16)
  *             if <PyObject*>bt == NULL:             # <<<<<<<<<<<<<<
@@ -2477,16 +2477,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
     __pyx_t_1 = ((((PyObject *)__pyx_v_bt) == NULL) != 0);
     if (unlikely(__pyx_t_1)) {
 
-      /* "ftea/_tea.pyx":26
+      /* "ftea/_tea.pyx":28
  *             bt = PyBytes_FromStringAndSize(NULL, 16)
  *             if <PyObject*>bt == NULL:
  *                 raise MemoryError             # <<<<<<<<<<<<<<
  *             buffer = PyBytes_AS_STRING(bt)
  *             (<uint32_t *>buffer)[0] = swap_uint32((<uint32_t *> self._key)[0])
  */
-      PyErr_NoMemory(); __PYX_ERR(0, 26, __pyx_L1_error)
+      PyErr_NoMemory(); __PYX_ERR(0, 28, __pyx_L1_error)
 
-      /* "ftea/_tea.pyx":25
+      /* "ftea/_tea.pyx":27
  *         if SHOULD_SWAP:  # small endian
  *             bt = PyBytes_FromStringAndSize(NULL, 16)
  *             if <PyObject*>bt == NULL:             # <<<<<<<<<<<<<<
@@ -2495,7 +2495,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  */
     }
 
-    /* "ftea/_tea.pyx":27
+    /* "ftea/_tea.pyx":29
  *             if <PyObject*>bt == NULL:
  *                 raise MemoryError
  *             buffer = PyBytes_AS_STRING(bt)             # <<<<<<<<<<<<<<
@@ -2504,7 +2504,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  */
     __pyx_v_buffer = PyBytes_AS_STRING(__pyx_v_bt);
 
-    /* "ftea/_tea.pyx":28
+    /* "ftea/_tea.pyx":30
  *                 raise MemoryError
  *             buffer = PyBytes_AS_STRING(bt)
  *             (<uint32_t *>buffer)[0] = swap_uint32((<uint32_t *> self._key)[0])             # <<<<<<<<<<<<<<
@@ -2513,7 +2513,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  */
     (((uint32_t *)__pyx_v_buffer)[0]) = swap_uint32((((uint32_t *)__pyx_v_self->_key)[0]));
 
-    /* "ftea/_tea.pyx":29
+    /* "ftea/_tea.pyx":31
  *             buffer = PyBytes_AS_STRING(bt)
  *             (<uint32_t *>buffer)[0] = swap_uint32((<uint32_t *> self._key)[0])
  *             (<uint32_t *>buffer)[1] = swap_uint32((<uint32_t *> self._key)[1])             # <<<<<<<<<<<<<<
@@ -2522,7 +2522,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  */
     (((uint32_t *)__pyx_v_buffer)[1]) = swap_uint32((((uint32_t *)__pyx_v_self->_key)[1]));
 
-    /* "ftea/_tea.pyx":30
+    /* "ftea/_tea.pyx":32
  *             (<uint32_t *>buffer)[0] = swap_uint32((<uint32_t *> self._key)[0])
  *             (<uint32_t *>buffer)[1] = swap_uint32((<uint32_t *> self._key)[1])
  *             (<uint32_t *>buffer)[2] = swap_uint32((<uint32_t *> self._key)[2])             # <<<<<<<<<<<<<<
@@ -2531,7 +2531,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  */
     (((uint32_t *)__pyx_v_buffer)[2]) = swap_uint32((((uint32_t *)__pyx_v_self->_key)[2]));
 
-    /* "ftea/_tea.pyx":31
+    /* "ftea/_tea.pyx":33
  *             (<uint32_t *>buffer)[1] = swap_uint32((<uint32_t *> self._key)[1])
  *             (<uint32_t *>buffer)[2] = swap_uint32((<uint32_t *> self._key)[2])
  *             (<uint32_t *>buffer)[3] = swap_uint32((<uint32_t *> self._key)[3])             # <<<<<<<<<<<<<<
@@ -2540,7 +2540,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  */
     (((uint32_t *)__pyx_v_buffer)[3]) = swap_uint32((((uint32_t *)__pyx_v_self->_key)[3]));
 
-    /* "ftea/_tea.pyx":32
+    /* "ftea/_tea.pyx":34
  *             (<uint32_t *>buffer)[2] = swap_uint32((<uint32_t *> self._key)[2])
  *             (<uint32_t *>buffer)[3] = swap_uint32((<uint32_t *> self._key)[3])
  *             return bt             # <<<<<<<<<<<<<<
@@ -2552,7 +2552,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
     __pyx_r = __pyx_v_bt;
     goto __pyx_L0;
 
-    /* "ftea/_tea.pyx":23
+    /* "ftea/_tea.pyx":25
  *             bytes bt
  *             char* buffer
  *         if SHOULD_SWAP:  # small endian             # <<<<<<<<<<<<<<
@@ -2561,7 +2561,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  */
   }
 
-  /* "ftea/_tea.pyx":34
+  /* "ftea/_tea.pyx":36
  *             return bt
  *         else:
  *             bt =  PyBytes_FromStringAndSize(<char*>self._key, 16)             # <<<<<<<<<<<<<<
@@ -2569,12 +2569,12 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  *                 raise MemoryError
  */
   /*else*/ {
-    __pyx_t_2 = PyBytes_FromStringAndSize(((char *)__pyx_v_self->_key), 16); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_2 = PyBytes_FromStringAndSize(((char *)__pyx_v_self->_key), 16); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_bt = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "ftea/_tea.pyx":35
+    /* "ftea/_tea.pyx":37
  *         else:
  *             bt =  PyBytes_FromStringAndSize(<char*>self._key, 16)
  *             if <PyObject*>bt == NULL:             # <<<<<<<<<<<<<<
@@ -2584,16 +2584,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
     __pyx_t_1 = ((((PyObject *)__pyx_v_bt) == NULL) != 0);
     if (unlikely(__pyx_t_1)) {
 
-      /* "ftea/_tea.pyx":36
+      /* "ftea/_tea.pyx":38
  *             bt =  PyBytes_FromStringAndSize(<char*>self._key, 16)
  *             if <PyObject*>bt == NULL:
  *                 raise MemoryError             # <<<<<<<<<<<<<<
  *             return bt
  * 
  */
-      PyErr_NoMemory(); __PYX_ERR(0, 36, __pyx_L1_error)
+      PyErr_NoMemory(); __PYX_ERR(0, 38, __pyx_L1_error)
 
-      /* "ftea/_tea.pyx":35
+      /* "ftea/_tea.pyx":37
  *         else:
  *             bt =  PyBytes_FromStringAndSize(<char*>self._key, 16)
  *             if <PyObject*>bt == NULL:             # <<<<<<<<<<<<<<
@@ -2602,7 +2602,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
  */
     }
 
-    /* "ftea/_tea.pyx":37
+    /* "ftea/_tea.pyx":39
  *             if <PyObject*>bt == NULL:
  *                 raise MemoryError
  *             return bt             # <<<<<<<<<<<<<<
@@ -2615,7 +2615,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
     goto __pyx_L0;
   }
 
-  /* "ftea/_tea.pyx":19
+  /* "ftea/_tea.pyx":21
  * 
  *     @property
  *     def key(self):             # <<<<<<<<<<<<<<
@@ -2635,7 +2635,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_3key___get__(struct __pyx_obj_4ftea_4
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":40
+/* "ftea/_tea.pyx":42
  * 
  *     @key.setter
  *     def key(self, const uint8_t[::1] key):             # <<<<<<<<<<<<<<
@@ -2654,7 +2654,7 @@ static int __pyx_pw_4ftea_4_tea_3TEA_3key_3__set__(PyObject *__pyx_v_self, PyObj
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
   assert(__pyx_arg_key); {
-    __pyx_v_key = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_arg_key, 0); if (unlikely(!__pyx_v_key.memview)) __PYX_ERR(0, 40, __pyx_L3_error)
+    __pyx_v_key = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_arg_key, 0); if (unlikely(!__pyx_v_key.memview)) __PYX_ERR(0, 42, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2679,7 +2679,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "ftea/_tea.pyx":41
+  /* "ftea/_tea.pyx":43
  *     @key.setter
  *     def key(self, const uint8_t[::1] key):
  *         assert key.shape[0] == 16, "key must be 16 bytes len"             # <<<<<<<<<<<<<<
@@ -2690,12 +2690,12 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_key.shape[0]) == 16) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_key_must_be_16_bytes_len);
-      __PYX_ERR(0, 41, __pyx_L1_error)
+      __PYX_ERR(0, 43, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":42
+  /* "ftea/_tea.pyx":44
  *     def key(self, const uint8_t[::1] key):
  *         assert key.shape[0] == 16, "key must be 16 bytes len"
  *         if SHOULD_SWAP:  # small endian             # <<<<<<<<<<<<<<
@@ -2705,7 +2705,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
   __pyx_t_1 = (SHOULD_SWAP != 0);
   if (__pyx_t_1) {
 
-    /* "ftea/_tea.pyx":43
+    /* "ftea/_tea.pyx":45
  *         assert key.shape[0] == 16, "key must be 16 bytes len"
  *         if SHOULD_SWAP:  # small endian
  *             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])             # <<<<<<<<<<<<<<
@@ -2715,7 +2715,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
     __pyx_t_2 = 0;
     (((uint32_t *)__pyx_v_self->_key)[0]) = swap_uint32((((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_key.data) + __pyx_t_2)) )))))[0]));
 
-    /* "ftea/_tea.pyx":44
+    /* "ftea/_tea.pyx":46
  *         if SHOULD_SWAP:  # small endian
  *             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])
  *             (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])             # <<<<<<<<<<<<<<
@@ -2725,7 +2725,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
     __pyx_t_2 = 0;
     (((uint32_t *)__pyx_v_self->_key)[1]) = swap_uint32((((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_key.data) + __pyx_t_2)) )))))[1]));
 
-    /* "ftea/_tea.pyx":45
+    /* "ftea/_tea.pyx":47
  *             (<uint32_t *> self._key)[0] = swap_uint32((<uint32_t *> &key[0])[0])
  *             (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])
  *             (<uint32_t *> self._key)[2] = swap_uint32((<uint32_t *> &key[0])[2])             # <<<<<<<<<<<<<<
@@ -2735,7 +2735,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
     __pyx_t_2 = 0;
     (((uint32_t *)__pyx_v_self->_key)[2]) = swap_uint32((((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_key.data) + __pyx_t_2)) )))))[2]));
 
-    /* "ftea/_tea.pyx":46
+    /* "ftea/_tea.pyx":48
  *             (<uint32_t *> self._key)[1] = swap_uint32((<uint32_t *> &key[0])[1])
  *             (<uint32_t *> self._key)[2] = swap_uint32((<uint32_t *> &key[0])[2])
  *             (<uint32_t *> self._key)[3] = swap_uint32((<uint32_t *> &key[0])[3])             # <<<<<<<<<<<<<<
@@ -2745,7 +2745,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
     __pyx_t_2 = 0;
     (((uint32_t *)__pyx_v_self->_key)[3]) = swap_uint32((((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_key.data) + __pyx_t_2)) )))))[3]));
 
-    /* "ftea/_tea.pyx":42
+    /* "ftea/_tea.pyx":44
  *     def key(self, const uint8_t[::1] key):
  *         assert key.shape[0] == 16, "key must be 16 bytes len"
  *         if SHOULD_SWAP:  # small endian             # <<<<<<<<<<<<<<
@@ -2755,7 +2755,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
     goto __pyx_L3;
   }
 
-  /* "ftea/_tea.pyx":48
+  /* "ftea/_tea.pyx":50
  *             (<uint32_t *> self._key)[3] = swap_uint32((<uint32_t *> &key[0])[3])
  *         else:
  *             memcpy(self._key, &key[0], 16)             # <<<<<<<<<<<<<<
@@ -2768,7 +2768,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
   }
   __pyx_L3:;
 
-  /* "ftea/_tea.pyx":40
+  /* "ftea/_tea.pyx":42
  * 
  *     @key.setter
  *     def key(self, const uint8_t[::1] key):             # <<<<<<<<<<<<<<
@@ -2788,7 +2788,7 @@ static int __pyx_pf_4ftea_4_tea_3TEA_3key_2__set__(struct __pyx_obj_4ftea_4_tea_
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":50
+/* "ftea/_tea.pyx":52
  *             memcpy(self._key, &key[0], 16)
  * 
  *     cpdef inline bytes encrypt_qq(self, const uint8_t[::1] text):             # <<<<<<<<<<<<<<
@@ -2813,7 +2813,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_qq", 0);
 
-  /* "ftea/_tea.pyx":52
+  /* "ftea/_tea.pyx":54
  *     cpdef inline bytes encrypt_qq(self, const uint8_t[::1] text):
  *         cdef:
  *             int64_t src_len = <int64_t>text.shape[0]             # <<<<<<<<<<<<<<
@@ -2822,7 +2822,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":53
+  /* "ftea/_tea.pyx":55
  *         cdef:
  *             int64_t src_len = <int64_t>text.shape[0]
  *             int64_t out_len = encrypt_qq_len(src_len)             # <<<<<<<<<<<<<<
@@ -2831,19 +2831,19 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
  */
   __pyx_v_out_len = encrypt_qq_len(__pyx_v_src_len);
 
-  /* "ftea/_tea.pyx":54
+  /* "ftea/_tea.pyx":56
  *             int64_t src_len = <int64_t>text.shape[0]
  *             int64_t out_len = encrypt_qq_len(src_len)
  *             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t>out_len)             # <<<<<<<<<<<<<<
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  */
-  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_out_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_out_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_buffer = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "ftea/_tea.pyx":57
+  /* "ftea/_tea.pyx":59
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -2853,16 +2853,16 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
   __pyx_t_2 = ((((PyObject *)__pyx_v_buffer) == NULL) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":58
+    /* "ftea/_tea.pyx":60
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 58, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 60, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":57
+    /* "ftea/_tea.pyx":59
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -2871,7 +2871,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
  */
   }
 
-  /* "ftea/_tea.pyx":59
+  /* "ftea/_tea.pyx":61
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)             # <<<<<<<<<<<<<<
@@ -2880,7 +2880,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
  */
   __pyx_v_buffer_ptr = ((uint8_t *)PyBytes_AS_STRING(__pyx_v_buffer));
 
-  /* "ftea/_tea.pyx":60
+  /* "ftea/_tea.pyx":62
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -2895,7 +2895,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":61
+        /* "ftea/_tea.pyx":63
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:
  *             buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, buffer_ptr, out_len)             # <<<<<<<<<<<<<<
@@ -2906,7 +2906,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
         __pyx_v_buffer_updated = tea_encrypt_qq(((uint32_t *)__pyx_v_self->_key), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_3)) ))))), __pyx_v_src_len, __pyx_v_buffer_ptr, __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":60
+      /* "ftea/_tea.pyx":62
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -2925,7 +2925,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
       }
   }
 
-  /* "ftea/_tea.pyx":62
+  /* "ftea/_tea.pyx":64
  *         with nogil:
  *             buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, buffer_ptr, out_len)
  *         if buffer_updated< 0:             # <<<<<<<<<<<<<<
@@ -2935,20 +2935,20 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
   __pyx_t_2 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":63
+    /* "ftea/_tea.pyx":65
  *             buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, buffer_ptr, out_len)
  *         if buffer_updated< 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer[:buffer_updated]
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 63, __pyx_L1_error)
+    __PYX_ERR(0, 65, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":62
+    /* "ftea/_tea.pyx":64
  *         with nogil:
  *             buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, buffer_ptr, out_len)
  *         if buffer_updated< 0:             # <<<<<<<<<<<<<<
@@ -2957,7 +2957,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
  */
   }
 
-  /* "ftea/_tea.pyx":64
+  /* "ftea/_tea.pyx":66
  *         if buffer_updated< 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
@@ -2967,15 +2967,15 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 64, __pyx_L1_error)
+    __PYX_ERR(0, 66, __pyx_L1_error)
   }
-  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":50
+  /* "ftea/_tea.pyx":52
  *             memcpy(self._key, &key[0], 16)
  * 
  *     cpdef inline bytes encrypt_qq(self, const uint8_t[::1] text):             # <<<<<<<<<<<<<<
@@ -3007,7 +3007,7 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_3encrypt_qq(PyObject *__pyx_v_self, P
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("encrypt_qq (wrapper)", 0);
   assert(__pyx_arg_text); {
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_arg_text, 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 50, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_arg_text, 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 52, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3031,8 +3031,8 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_2encrypt_qq(struct __pyx_obj_4ftea_4_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_qq", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 50, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt_qq(__pyx_v_self, __pyx_v_text, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 52, __pyx_L1_error) }
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt_qq(__pyx_v_self, __pyx_v_text, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3050,7 +3050,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_2encrypt_qq(struct __pyx_obj_4ftea_4_
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":66
+/* "ftea/_tea.pyx":68
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -3074,7 +3074,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_qq_into", 0);
 
-  /* "ftea/_tea.pyx":68
+  /* "ftea/_tea.pyx":70
  *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -3083,7 +3083,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":69
+  /* "ftea/_tea.pyx":71
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = <int64_t> out.shape[0]             # <<<<<<<<<<<<<<
@@ -3092,7 +3092,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
  */
   __pyx_v_out_len = ((int64_t)(__pyx_v_out.shape[0]));
 
-  /* "ftea/_tea.pyx":72
+  /* "ftea/_tea.pyx":74
  *             int64_t buffer_updated
  * 
  *         if out_len < encrypt_qq_len(src_len):             # <<<<<<<<<<<<<<
@@ -3102,20 +3102,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
   __pyx_t_1 = ((__pyx_v_out_len < encrypt_qq_len(__pyx_v_src_len)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":73
+    /* "ftea/_tea.pyx":75
  * 
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")             # <<<<<<<<<<<<<<
  *         with nogil:
  *             buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 73, __pyx_L1_error)
+    __PYX_ERR(0, 75, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":72
+    /* "ftea/_tea.pyx":74
  *             int64_t buffer_updated
  * 
  *         if out_len < encrypt_qq_len(src_len):             # <<<<<<<<<<<<<<
@@ -3124,7 +3124,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
  */
   }
 
-  /* "ftea/_tea.pyx":74
+  /* "ftea/_tea.pyx":76
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -3139,7 +3139,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":75
+        /* "ftea/_tea.pyx":77
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -3148,7 +3148,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":76
+        /* "ftea/_tea.pyx":78
  *         with nogil:
  *             buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         <uint8_t *> &out[0], out_len)             # <<<<<<<<<<<<<<
@@ -3157,7 +3157,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
  */
         __pyx_t_4 = 0;
 
-        /* "ftea/_tea.pyx":75
+        /* "ftea/_tea.pyx":77
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -3167,7 +3167,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
         __pyx_v_buffer_updated = tea_encrypt_qq(((uint32_t *)__pyx_v_self->_key), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_3)) ))))), __pyx_v_src_len, ((uint8_t *)(&(*((uint8_t *) ( /* dim=0 */ ((char *) (((uint8_t *) __pyx_v_out.data) + __pyx_t_4)) ))))), __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":74
+      /* "ftea/_tea.pyx":76
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -3186,7 +3186,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
       }
   }
 
-  /* "ftea/_tea.pyx":77
+  /* "ftea/_tea.pyx":79
  *             buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -3196,20 +3196,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
   __pyx_t_1 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":78
+    /* "ftea/_tea.pyx":80
  *                                                         <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer_updated
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 78, __pyx_L1_error)
+    __PYX_ERR(0, 80, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":77
+    /* "ftea/_tea.pyx":79
  *             buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -3218,7 +3218,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
  */
   }
 
-  /* "ftea/_tea.pyx":79
+  /* "ftea/_tea.pyx":81
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer_updated             # <<<<<<<<<<<<<<
@@ -3228,7 +3228,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
   __pyx_r = __pyx_v_buffer_updated;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":66
+  /* "ftea/_tea.pyx":68
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -3281,11 +3281,11 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_5encrypt_qq_into(PyObject *__pyx_v_se
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_out)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("encrypt_qq_into", 1, 2, 2, 1); __PYX_ERR(0, 66, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("encrypt_qq_into", 1, 2, 2, 1); __PYX_ERR(0, 68, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt_qq_into") < 0)) __PYX_ERR(0, 66, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt_qq_into") < 0)) __PYX_ERR(0, 68, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3293,12 +3293,12 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_5encrypt_qq_into(PyObject *__pyx_v_se
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 66, __pyx_L3_error)
-    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 66, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 68, __pyx_L3_error)
+    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 68, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("encrypt_qq_into", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 66, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("encrypt_qq_into", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 68, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.encrypt_qq_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3320,9 +3320,9 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_4encrypt_qq_into(struct __pyx_obj_4ft
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_qq_into", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 66, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 66, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(__pyx_v_self, __pyx_v_text, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 68, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 68, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(__pyx_v_self, __pyx_v_text, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3341,7 +3341,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_4encrypt_qq_into(struct __pyx_obj_4ft
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":81
+/* "ftea/_tea.pyx":83
  *         return buffer_updated
  * 
  *     cpdef inline bytes encrypt(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):             # <<<<<<<<<<<<<<
@@ -3367,7 +3367,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt", 0);
 
-  /* "ftea/_tea.pyx":82
+  /* "ftea/_tea.pyx":84
  * 
  *     cpdef inline bytes encrypt(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
@@ -3378,12 +3378,12 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_sumtable.shape[0]) == 64) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_sum_table_must_be_64_bytes_len);
-      __PYX_ERR(0, 82, __pyx_L1_error)
+      __PYX_ERR(0, 84, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":84
+  /* "ftea/_tea.pyx":86
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -3392,7 +3392,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":85
+  /* "ftea/_tea.pyx":87
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = encrypt_qq_len(src_len)             # <<<<<<<<<<<<<<
@@ -3401,19 +3401,19 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
  */
   __pyx_v_out_len = encrypt_qq_len(__pyx_v_src_len);
 
-  /* "ftea/_tea.pyx":86
+  /* "ftea/_tea.pyx":88
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = encrypt_qq_len(src_len)
  *             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> out_len)             # <<<<<<<<<<<<<<
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  */
-  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_out_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_out_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_buffer = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "ftea/_tea.pyx":89
+  /* "ftea/_tea.pyx":91
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -3423,16 +3423,16 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
   __pyx_t_2 = ((((PyObject *)__pyx_v_buffer) == NULL) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":90
+    /* "ftea/_tea.pyx":92
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 90, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 92, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":89
+    /* "ftea/_tea.pyx":91
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -3441,7 +3441,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
  */
   }
 
-  /* "ftea/_tea.pyx":91
+  /* "ftea/_tea.pyx":93
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)             # <<<<<<<<<<<<<<
@@ -3450,7 +3450,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
  */
   __pyx_v_buffer_ptr = ((uint8_t *)PyBytes_AS_STRING(__pyx_v_buffer));
 
-  /* "ftea/_tea.pyx":92
+  /* "ftea/_tea.pyx":94
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -3465,7 +3465,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":93
+        /* "ftea/_tea.pyx":95
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, out_len)             # <<<<<<<<<<<<<<
@@ -3477,7 +3477,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
         __pyx_v_buffer_updated = tea_encrypt(((uint32_t *)__pyx_v_self->_key), ((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_sumtable.data) + __pyx_t_3)) ))))), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_4)) ))))), __pyx_v_src_len, __pyx_v_buffer_ptr, __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":92
+      /* "ftea/_tea.pyx":94
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -3496,7 +3496,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
       }
   }
 
-  /* "ftea/_tea.pyx":94
+  /* "ftea/_tea.pyx":96
  *         with nogil:
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, out_len)
  *         if buffer_updated< 0:             # <<<<<<<<<<<<<<
@@ -3506,20 +3506,20 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
   __pyx_t_2 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":95
+    /* "ftea/_tea.pyx":97
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, out_len)
  *         if buffer_updated< 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer[:buffer_updated]
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 95, __pyx_L1_error)
+    __PYX_ERR(0, 97, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":94
+    /* "ftea/_tea.pyx":96
  *         with nogil:
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, out_len)
  *         if buffer_updated< 0:             # <<<<<<<<<<<<<<
@@ -3528,7 +3528,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
  */
   }
 
-  /* "ftea/_tea.pyx":96
+  /* "ftea/_tea.pyx":98
  *         if buffer_updated< 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
@@ -3538,15 +3538,15 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 96, __pyx_L1_error)
+    __PYX_ERR(0, 98, __pyx_L1_error)
   }
-  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":81
+  /* "ftea/_tea.pyx":83
  *         return buffer_updated
  * 
  *     cpdef inline bytes encrypt(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):             # <<<<<<<<<<<<<<
@@ -3601,11 +3601,11 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_7encrypt(PyObject *__pyx_v_self, PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_sumtable)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("encrypt", 1, 2, 2, 1); __PYX_ERR(0, 81, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("encrypt", 1, 2, 2, 1); __PYX_ERR(0, 83, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt") < 0)) __PYX_ERR(0, 81, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt") < 0)) __PYX_ERR(0, 83, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3613,12 +3613,12 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_7encrypt(PyObject *__pyx_v_self, PyOb
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 81, __pyx_L3_error)
-    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 81, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 83, __pyx_L3_error)
+    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 83, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("encrypt", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 81, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("encrypt", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 83, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.encrypt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3640,9 +3640,9 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_6encrypt(struct __pyx_obj_4ftea_4_tea
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 81, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 81, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 83, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 83, __pyx_L1_error) }
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3661,7 +3661,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_6encrypt(struct __pyx_obj_4ftea_4_tea
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":98
+/* "ftea/_tea.pyx":100
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -3686,7 +3686,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_into", 0);
 
-  /* "ftea/_tea.pyx":99
+  /* "ftea/_tea.pyx":101
  * 
  *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
@@ -3697,12 +3697,12 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_sumtable.shape[0]) == 64) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_sum_table_must_be_64_bytes_len);
-      __PYX_ERR(0, 99, __pyx_L1_error)
+      __PYX_ERR(0, 101, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":101
+  /* "ftea/_tea.pyx":103
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -3711,7 +3711,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":102
+  /* "ftea/_tea.pyx":104
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = <int64_t> out.shape[0]             # <<<<<<<<<<<<<<
@@ -3720,7 +3720,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
  */
   __pyx_v_out_len = ((int64_t)(__pyx_v_out.shape[0]));
 
-  /* "ftea/_tea.pyx":104
+  /* "ftea/_tea.pyx":106
  *             int64_t out_len = <int64_t> out.shape[0]
  *             int64_t buffer_updated
  *         if out_len < encrypt_qq_len(src_len):             # <<<<<<<<<<<<<<
@@ -3730,20 +3730,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
   __pyx_t_1 = ((__pyx_v_out_len < encrypt_qq_len(__pyx_v_src_len)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":105
+    /* "ftea/_tea.pyx":107
  *             int64_t buffer_updated
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")             # <<<<<<<<<<<<<<
  *         with nogil:
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 105, __pyx_L1_error)
+    __PYX_ERR(0, 107, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":104
+    /* "ftea/_tea.pyx":106
  *             int64_t out_len = <int64_t> out.shape[0]
  *             int64_t buffer_updated
  *         if out_len < encrypt_qq_len(src_len):             # <<<<<<<<<<<<<<
@@ -3752,7 +3752,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
  */
   }
 
-  /* "ftea/_tea.pyx":106
+  /* "ftea/_tea.pyx":108
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -3767,7 +3767,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":107
+        /* "ftea/_tea.pyx":109
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -3776,7 +3776,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":108
+        /* "ftea/_tea.pyx":110
  *         with nogil:
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -3785,7 +3785,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
  */
         __pyx_t_4 = 0;
 
-        /* "ftea/_tea.pyx":109
+        /* "ftea/_tea.pyx":111
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)             # <<<<<<<<<<<<<<
@@ -3794,7 +3794,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
  */
         __pyx_t_5 = 0;
 
-        /* "ftea/_tea.pyx":107
+        /* "ftea/_tea.pyx":109
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_encrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -3804,7 +3804,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
         __pyx_v_buffer_updated = tea_encrypt(((uint32_t *)__pyx_v_self->_key), ((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_sumtable.data) + __pyx_t_3)) ))))), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_4)) ))))), __pyx_v_src_len, ((uint8_t *)(&(*((uint8_t *) ( /* dim=0 */ ((char *) (((uint8_t *) __pyx_v_out.data) + __pyx_t_5)) ))))), __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":106
+      /* "ftea/_tea.pyx":108
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -3823,7 +3823,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
       }
   }
 
-  /* "ftea/_tea.pyx":110
+  /* "ftea/_tea.pyx":112
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -3833,20 +3833,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
   __pyx_t_1 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":111
+    /* "ftea/_tea.pyx":113
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer_updated
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 111, __pyx_L1_error)
+    __PYX_ERR(0, 113, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":110
+    /* "ftea/_tea.pyx":112
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -3855,7 +3855,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
  */
   }
 
-  /* "ftea/_tea.pyx":112
+  /* "ftea/_tea.pyx":114
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer_updated             # <<<<<<<<<<<<<<
@@ -3865,7 +3865,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
   __pyx_r = __pyx_v_buffer_updated;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":98
+  /* "ftea/_tea.pyx":100
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -3921,17 +3921,17 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_9encrypt_into(PyObject *__pyx_v_self,
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_sumtable)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("encrypt_into", 1, 3, 3, 1); __PYX_ERR(0, 98, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("encrypt_into", 1, 3, 3, 1); __PYX_ERR(0, 100, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_out)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("encrypt_into", 1, 3, 3, 2); __PYX_ERR(0, 98, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("encrypt_into", 1, 3, 3, 2); __PYX_ERR(0, 100, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt_into") < 0)) __PYX_ERR(0, 98, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt_into") < 0)) __PYX_ERR(0, 100, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3940,13 +3940,13 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_9encrypt_into(PyObject *__pyx_v_self,
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 98, __pyx_L3_error)
-    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 98, __pyx_L3_error)
-    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 98, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 100, __pyx_L3_error)
+    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 100, __pyx_L3_error)
+    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 100, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("encrypt_into", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 98, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("encrypt_into", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 100, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.encrypt_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3968,10 +3968,10 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_8encrypt_into(struct __pyx_obj_4ftea_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_into", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 98, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 98, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 98, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 100, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 100, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 100, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3991,7 +3991,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_8encrypt_into(struct __pyx_obj_4ftea_
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":114
+/* "ftea/_tea.pyx":116
  *         return buffer_updated
  * 
  *     cpdef inline bytes encrypt_native_endian(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):             # <<<<<<<<<<<<<<
@@ -4017,7 +4017,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_native_endian", 0);
 
-  /* "ftea/_tea.pyx":115
+  /* "ftea/_tea.pyx":117
  * 
  *     cpdef inline bytes encrypt_native_endian(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
@@ -4028,12 +4028,12 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_sumtable.shape[0]) == 64) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_sum_table_must_be_64_bytes_len);
-      __PYX_ERR(0, 115, __pyx_L1_error)
+      __PYX_ERR(0, 117, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":117
+  /* "ftea/_tea.pyx":119
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -4042,7 +4042,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":118
+  /* "ftea/_tea.pyx":120
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = encrypt_qq_len(src_len)             # <<<<<<<<<<<<<<
@@ -4051,19 +4051,19 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
  */
   __pyx_v_out_len = encrypt_qq_len(__pyx_v_src_len);
 
-  /* "ftea/_tea.pyx":119
+  /* "ftea/_tea.pyx":121
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = encrypt_qq_len(src_len)
  *             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> out_len)             # <<<<<<<<<<<<<<
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  */
-  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_out_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_out_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_buffer = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "ftea/_tea.pyx":122
+  /* "ftea/_tea.pyx":124
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -4073,16 +4073,16 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
   __pyx_t_2 = ((((PyObject *)__pyx_v_buffer) == NULL) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":123
+    /* "ftea/_tea.pyx":125
  *             uint8_t *buffer_ptr
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 123, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 125, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":122
+    /* "ftea/_tea.pyx":124
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -4091,7 +4091,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
  */
   }
 
-  /* "ftea/_tea.pyx":124
+  /* "ftea/_tea.pyx":126
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)             # <<<<<<<<<<<<<<
@@ -4100,7 +4100,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
  */
   __pyx_v_buffer_ptr = ((uint8_t *)PyBytes_AS_STRING(__pyx_v_buffer));
 
-  /* "ftea/_tea.pyx":125
+  /* "ftea/_tea.pyx":127
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -4115,7 +4115,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":126
+        /* "ftea/_tea.pyx":128
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:
  *             buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -4124,7 +4124,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":127
+        /* "ftea/_tea.pyx":129
  *         with nogil:
  *             buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -4133,7 +4133,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
  */
         __pyx_t_4 = 0;
 
-        /* "ftea/_tea.pyx":126
+        /* "ftea/_tea.pyx":128
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:
  *             buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -4143,7 +4143,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
         __pyx_v_buffer_updated = tea_encrypt_native_endian(((uint32_t *)__pyx_v_self->_key), ((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_sumtable.data) + __pyx_t_3)) ))))), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_4)) ))))), __pyx_v_src_len, __pyx_v_buffer_ptr, __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":125
+      /* "ftea/_tea.pyx":127
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -4162,7 +4162,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
       }
   }
 
-  /* "ftea/_tea.pyx":129
+  /* "ftea/_tea.pyx":131
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     buffer_ptr, out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -4172,20 +4172,20 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
   __pyx_t_2 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":130
+    /* "ftea/_tea.pyx":132
  *                                                     buffer_ptr, out_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer[:buffer_updated]
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 130, __pyx_L1_error)
+    __PYX_ERR(0, 132, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":129
+    /* "ftea/_tea.pyx":131
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     buffer_ptr, out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -4194,7 +4194,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
  */
   }
 
-  /* "ftea/_tea.pyx":131
+  /* "ftea/_tea.pyx":133
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
@@ -4204,15 +4204,15 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 131, __pyx_L1_error)
+    __PYX_ERR(0, 133, __pyx_L1_error)
   }
-  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
+  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":114
+  /* "ftea/_tea.pyx":116
  *         return buffer_updated
  * 
  *     cpdef inline bytes encrypt_native_endian(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):             # <<<<<<<<<<<<<<
@@ -4267,11 +4267,11 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_11encrypt_native_endian(PyObject *__p
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_sumtable)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("encrypt_native_endian", 1, 2, 2, 1); __PYX_ERR(0, 114, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("encrypt_native_endian", 1, 2, 2, 1); __PYX_ERR(0, 116, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt_native_endian") < 0)) __PYX_ERR(0, 114, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt_native_endian") < 0)) __PYX_ERR(0, 116, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4279,12 +4279,12 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_11encrypt_native_endian(PyObject *__p
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 114, __pyx_L3_error)
-    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 114, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 116, __pyx_L3_error)
+    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 116, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("encrypt_native_endian", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 114, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("encrypt_native_endian", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 116, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.encrypt_native_endian", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4306,9 +4306,9 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_10encrypt_native_endian(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_native_endian", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 114, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 114, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 116, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 116, __pyx_L1_error) }
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4327,7 +4327,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_10encrypt_native_endian(struct __pyx_
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":133
+/* "ftea/_tea.pyx":135
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -4352,7 +4352,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_native_endian_into", 0);
 
-  /* "ftea/_tea.pyx":134
+  /* "ftea/_tea.pyx":136
  * 
  *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
@@ -4363,12 +4363,12 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_sumtable.shape[0]) == 64) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_sum_table_must_be_64_bytes_len);
-      __PYX_ERR(0, 134, __pyx_L1_error)
+      __PYX_ERR(0, 136, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":136
+  /* "ftea/_tea.pyx":138
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -4377,7 +4377,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":137
+  /* "ftea/_tea.pyx":139
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = <int64_t> out.shape[0]             # <<<<<<<<<<<<<<
@@ -4386,7 +4386,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
  */
   __pyx_v_out_len = ((int64_t)(__pyx_v_out.shape[0]));
 
-  /* "ftea/_tea.pyx":139
+  /* "ftea/_tea.pyx":141
  *             int64_t out_len = <int64_t> out.shape[0]
  *             int64_t buffer_updated
  *         if out_len < encrypt_qq_len(src_len):             # <<<<<<<<<<<<<<
@@ -4396,20 +4396,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
   __pyx_t_1 = ((__pyx_v_out_len < encrypt_qq_len(__pyx_v_src_len)) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":140
+    /* "ftea/_tea.pyx":142
  *             int64_t buffer_updated
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")             # <<<<<<<<<<<<<<
  *         with nogil:
  *             buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 140, __pyx_L1_error)
+    __PYX_ERR(0, 142, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":139
+    /* "ftea/_tea.pyx":141
  *             int64_t out_len = <int64_t> out.shape[0]
  *             int64_t buffer_updated
  *         if out_len < encrypt_qq_len(src_len):             # <<<<<<<<<<<<<<
@@ -4418,7 +4418,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
  */
   }
 
-  /* "ftea/_tea.pyx":141
+  /* "ftea/_tea.pyx":143
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -4433,7 +4433,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":142
+        /* "ftea/_tea.pyx":144
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -4442,7 +4442,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":143
+        /* "ftea/_tea.pyx":145
  *         with nogil:
  *             buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -4451,7 +4451,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
  */
         __pyx_t_4 = 0;
 
-        /* "ftea/_tea.pyx":144
+        /* "ftea/_tea.pyx":146
  *             buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)             # <<<<<<<<<<<<<<
@@ -4460,7 +4460,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
  */
         __pyx_t_5 = 0;
 
-        /* "ftea/_tea.pyx":142
+        /* "ftea/_tea.pyx":144
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_encrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -4470,7 +4470,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
         __pyx_v_buffer_updated = tea_encrypt_native_endian(((uint32_t *)__pyx_v_self->_key), ((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_sumtable.data) + __pyx_t_3)) ))))), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_4)) ))))), __pyx_v_src_len, ((uint8_t *)(&(*((uint8_t *) ( /* dim=0 */ ((char *) (((uint8_t *) __pyx_v_out.data) + __pyx_t_5)) ))))), __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":141
+      /* "ftea/_tea.pyx":143
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -4489,7 +4489,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
       }
   }
 
-  /* "ftea/_tea.pyx":145
+  /* "ftea/_tea.pyx":147
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -4499,20 +4499,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
   __pyx_t_1 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":146
+    /* "ftea/_tea.pyx":148
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer_updated
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 146, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 148, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 146, __pyx_L1_error)
+    __PYX_ERR(0, 148, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":145
+    /* "ftea/_tea.pyx":147
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -4521,7 +4521,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
  */
   }
 
-  /* "ftea/_tea.pyx":147
+  /* "ftea/_tea.pyx":149
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer_updated             # <<<<<<<<<<<<<<
@@ -4531,7 +4531,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
   __pyx_r = __pyx_v_buffer_updated;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":133
+  /* "ftea/_tea.pyx":135
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -4587,17 +4587,17 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_13encrypt_native_endian_into(PyObject
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_sumtable)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("encrypt_native_endian_into", 1, 3, 3, 1); __PYX_ERR(0, 133, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("encrypt_native_endian_into", 1, 3, 3, 1); __PYX_ERR(0, 135, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_out)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("encrypt_native_endian_into", 1, 3, 3, 2); __PYX_ERR(0, 133, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("encrypt_native_endian_into", 1, 3, 3, 2); __PYX_ERR(0, 135, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt_native_endian_into") < 0)) __PYX_ERR(0, 133, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "encrypt_native_endian_into") < 0)) __PYX_ERR(0, 135, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -4606,13 +4606,13 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_13encrypt_native_endian_into(PyObject
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 133, __pyx_L3_error)
-    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 133, __pyx_L3_error)
-    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 133, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
+    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
+    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 135, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("encrypt_native_endian_into", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 133, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("encrypt_native_endian_into", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 135, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.encrypt_native_endian_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4634,10 +4634,10 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_12encrypt_native_endian_into(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_native_endian_into", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 133, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 133, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 133, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 135, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 135, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 135, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4657,7 +4657,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_12encrypt_native_endian_into(struct _
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":149
+/* "ftea/_tea.pyx":151
  *         return buffer_updated
  * 
  *     cpdef inline bytes decrypt_qq(self, const uint8_t[::1] text):             # <<<<<<<<<<<<<<
@@ -4681,7 +4681,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_qq", 0);
 
-  /* "ftea/_tea.pyx":151
+  /* "ftea/_tea.pyx":153
  *     cpdef inline bytes decrypt_qq(self, const uint8_t[::1] text):
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -4690,19 +4690,19 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":152
+  /* "ftea/_tea.pyx":154
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> src_len)             # <<<<<<<<<<<<<<
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  */
-  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_src_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_src_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_buffer = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "ftea/_tea.pyx":155
+  /* "ftea/_tea.pyx":157
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -4712,16 +4712,16 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
   __pyx_t_2 = ((((PyObject *)__pyx_v_buffer) == NULL) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":156
+    /* "ftea/_tea.pyx":158
  *             uint8_t *buffer_ptr
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 156, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 158, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":155
+    /* "ftea/_tea.pyx":157
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -4730,7 +4730,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
  */
   }
 
-  /* "ftea/_tea.pyx":157
+  /* "ftea/_tea.pyx":159
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)             # <<<<<<<<<<<<<<
@@ -4739,7 +4739,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
  */
   __pyx_v_buffer_ptr = ((uint8_t *)PyBytes_AS_STRING(__pyx_v_buffer));
 
-  /* "ftea/_tea.pyx":158
+  /* "ftea/_tea.pyx":160
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -4754,7 +4754,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":159
+        /* "ftea/_tea.pyx":161
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -4763,7 +4763,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":160
+        /* "ftea/_tea.pyx":162
  *         with nogil:
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         buffer_ptr, src_len)             # <<<<<<<<<<<<<<
@@ -4773,7 +4773,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
         __pyx_v_buffer_updated = tea_decrypt_qq(((uint32_t *)__pyx_v_self->_key), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_3)) ))))), __pyx_v_src_len, __pyx_v_buffer_ptr, __pyx_v_src_len);
       }
 
-      /* "ftea/_tea.pyx":158
+      /* "ftea/_tea.pyx":160
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -4792,7 +4792,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
       }
   }
 
-  /* "ftea/_tea.pyx":161
+  /* "ftea/_tea.pyx":163
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         buffer_ptr, src_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -4802,20 +4802,20 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
   __pyx_t_2 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":162
+    /* "ftea/_tea.pyx":164
  *                                                         buffer_ptr, src_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer[:buffer_updated]
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 162, __pyx_L1_error)
+    __PYX_ERR(0, 164, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":161
+    /* "ftea/_tea.pyx":163
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         buffer_ptr, src_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -4824,7 +4824,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
  */
   }
 
-  /* "ftea/_tea.pyx":163
+  /* "ftea/_tea.pyx":165
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
@@ -4834,15 +4834,15 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 163, __pyx_L1_error)
+    __PYX_ERR(0, 165, __pyx_L1_error)
   }
-  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":149
+  /* "ftea/_tea.pyx":151
  *         return buffer_updated
  * 
  *     cpdef inline bytes decrypt_qq(self, const uint8_t[::1] text):             # <<<<<<<<<<<<<<
@@ -4874,7 +4874,7 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_15decrypt_qq(PyObject *__pyx_v_self, 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("decrypt_qq (wrapper)", 0);
   assert(__pyx_arg_text); {
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_arg_text, 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 149, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(__pyx_arg_text, 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 151, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4898,8 +4898,8 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_14decrypt_qq(struct __pyx_obj_4ftea_4
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_qq", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 149, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt_qq(__pyx_v_self, __pyx_v_text, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 151, __pyx_L1_error) }
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt_qq(__pyx_v_self, __pyx_v_text, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4917,7 +4917,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_14decrypt_qq(struct __pyx_obj_4ftea_4
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":165
+/* "ftea/_tea.pyx":167
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -4941,7 +4941,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_qq_into", 0);
 
-  /* "ftea/_tea.pyx":167
+  /* "ftea/_tea.pyx":169
  *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -4950,7 +4950,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":168
+  /* "ftea/_tea.pyx":170
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = <int64_t> out.shape[0]             # <<<<<<<<<<<<<<
@@ -4959,7 +4959,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
  */
   __pyx_v_out_len = ((int64_t)(__pyx_v_out.shape[0]));
 
-  /* "ftea/_tea.pyx":171
+  /* "ftea/_tea.pyx":173
  *             int64_t buffer_updated
  * 
  *         if out_len < src_len:             # <<<<<<<<<<<<<<
@@ -4969,20 +4969,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
   __pyx_t_1 = ((__pyx_v_out_len < __pyx_v_src_len) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":172
+    /* "ftea/_tea.pyx":174
  * 
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")             # <<<<<<<<<<<<<<
  *         with nogil:
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 172, __pyx_L1_error)
+    __PYX_ERR(0, 174, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":171
+    /* "ftea/_tea.pyx":173
  *             int64_t buffer_updated
  * 
  *         if out_len < src_len:             # <<<<<<<<<<<<<<
@@ -4991,7 +4991,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
  */
   }
 
-  /* "ftea/_tea.pyx":173
+  /* "ftea/_tea.pyx":175
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -5006,7 +5006,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":174
+        /* "ftea/_tea.pyx":176
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -5015,7 +5015,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":175
+        /* "ftea/_tea.pyx":177
  *         with nogil:
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         <uint8_t *> &out[0], out_len)             # <<<<<<<<<<<<<<
@@ -5024,7 +5024,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
  */
         __pyx_t_4 = 0;
 
-        /* "ftea/_tea.pyx":174
+        /* "ftea/_tea.pyx":176
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -5034,7 +5034,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
         __pyx_v_buffer_updated = tea_decrypt_qq(((uint32_t *)__pyx_v_self->_key), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_3)) ))))), __pyx_v_src_len, ((uint8_t *)(&(*((uint8_t *) ( /* dim=0 */ ((char *) (((uint8_t *) __pyx_v_out.data) + __pyx_t_4)) ))))), __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":173
+      /* "ftea/_tea.pyx":175
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -5053,7 +5053,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
       }
   }
 
-  /* "ftea/_tea.pyx":176
+  /* "ftea/_tea.pyx":178
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -5063,20 +5063,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
   __pyx_t_1 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":177
+    /* "ftea/_tea.pyx":179
  *                                                         <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer_updated
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 179, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 177, __pyx_L1_error)
+    __PYX_ERR(0, 179, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":176
+    /* "ftea/_tea.pyx":178
  *             buffer_updated = tea_decrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  *                                                         <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -5085,7 +5085,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
  */
   }
 
-  /* "ftea/_tea.pyx":178
+  /* "ftea/_tea.pyx":180
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer_updated             # <<<<<<<<<<<<<<
@@ -5095,7 +5095,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
   __pyx_r = __pyx_v_buffer_updated;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":165
+  /* "ftea/_tea.pyx":167
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -5148,11 +5148,11 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_17decrypt_qq_into(PyObject *__pyx_v_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_out)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decrypt_qq_into", 1, 2, 2, 1); __PYX_ERR(0, 165, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decrypt_qq_into", 1, 2, 2, 1); __PYX_ERR(0, 167, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt_qq_into") < 0)) __PYX_ERR(0, 165, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt_qq_into") < 0)) __PYX_ERR(0, 167, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5160,12 +5160,12 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_17decrypt_qq_into(PyObject *__pyx_v_s
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 165, __pyx_L3_error)
-    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 165, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 167, __pyx_L3_error)
+    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 167, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("decrypt_qq_into", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 165, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("decrypt_qq_into", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 167, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.decrypt_qq_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5187,9 +5187,9 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_16decrypt_qq_into(struct __pyx_obj_4f
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_qq_into", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 165, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 165, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(__pyx_v_self, __pyx_v_text, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 167, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 167, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(__pyx_v_self, __pyx_v_text, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5208,7 +5208,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_16decrypt_qq_into(struct __pyx_obj_4f
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":180
+/* "ftea/_tea.pyx":182
  *         return buffer_updated
  * 
  *     cpdef inline bytes decrypt(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):             # <<<<<<<<<<<<<<
@@ -5233,7 +5233,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt", 0);
 
-  /* "ftea/_tea.pyx":181
+  /* "ftea/_tea.pyx":183
  * 
  *     cpdef inline bytes decrypt(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
@@ -5244,12 +5244,12 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_sumtable.shape[0]) == 64) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_sum_table_must_be_64_bytes_len);
-      __PYX_ERR(0, 181, __pyx_L1_error)
+      __PYX_ERR(0, 183, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":183
+  /* "ftea/_tea.pyx":185
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -5258,19 +5258,19 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":184
+  /* "ftea/_tea.pyx":186
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> src_len)             # <<<<<<<<<<<<<<
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  */
-  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_src_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_src_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_buffer = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "ftea/_tea.pyx":187
+  /* "ftea/_tea.pyx":189
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -5280,16 +5280,16 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
   __pyx_t_2 = ((((PyObject *)__pyx_v_buffer) == NULL) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":188
+    /* "ftea/_tea.pyx":190
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 188, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 190, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":187
+    /* "ftea/_tea.pyx":189
  *             int64_t buffer_updated
  *             uint8_t* buffer_ptr
  *         if <PyObject*>buffer == NULL:             # <<<<<<<<<<<<<<
@@ -5298,7 +5298,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
  */
   }
 
-  /* "ftea/_tea.pyx":189
+  /* "ftea/_tea.pyx":191
  *         if <PyObject*>buffer == NULL:
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)             # <<<<<<<<<<<<<<
@@ -5307,7 +5307,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
  */
   __pyx_v_buffer_ptr = ((uint8_t *)PyBytes_AS_STRING(__pyx_v_buffer));
 
-  /* "ftea/_tea.pyx":190
+  /* "ftea/_tea.pyx":192
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -5322,7 +5322,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":191
+        /* "ftea/_tea.pyx":193
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, src_len)             # <<<<<<<<<<<<<<
@@ -5334,7 +5334,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
         __pyx_v_buffer_updated = tea_decrypt(((uint32_t *)__pyx_v_self->_key), ((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_sumtable.data) + __pyx_t_3)) ))))), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_4)) ))))), __pyx_v_src_len, __pyx_v_buffer_ptr, __pyx_v_src_len);
       }
 
-      /* "ftea/_tea.pyx":190
+      /* "ftea/_tea.pyx":192
  *             raise MemoryError
  *         buffer_ptr = <uint8_t*>PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -5353,7 +5353,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
       }
   }
 
-  /* "ftea/_tea.pyx":192
+  /* "ftea/_tea.pyx":194
  *         with nogil:
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, src_len)
  *         if buffer_updated< 0:             # <<<<<<<<<<<<<<
@@ -5363,20 +5363,20 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
   __pyx_t_2 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":193
+    /* "ftea/_tea.pyx":195
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, src_len)
  *         if buffer_updated< 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer[:buffer_updated]
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 193, __pyx_L1_error)
+    __PYX_ERR(0, 195, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":192
+    /* "ftea/_tea.pyx":194
  *         with nogil:
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],<const uint8_t *> &text[0], src_len, buffer_ptr, src_len)
  *         if buffer_updated< 0:             # <<<<<<<<<<<<<<
@@ -5385,7 +5385,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
  */
   }
 
-  /* "ftea/_tea.pyx":194
+  /* "ftea/_tea.pyx":196
  *         if buffer_updated< 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
@@ -5395,15 +5395,15 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 194, __pyx_L1_error)
+    __PYX_ERR(0, 196, __pyx_L1_error)
   }
-  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":180
+  /* "ftea/_tea.pyx":182
  *         return buffer_updated
  * 
  *     cpdef inline bytes decrypt(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):             # <<<<<<<<<<<<<<
@@ -5458,11 +5458,11 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_19decrypt(PyObject *__pyx_v_self, PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_sumtable)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decrypt", 1, 2, 2, 1); __PYX_ERR(0, 180, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decrypt", 1, 2, 2, 1); __PYX_ERR(0, 182, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt") < 0)) __PYX_ERR(0, 180, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt") < 0)) __PYX_ERR(0, 182, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5470,12 +5470,12 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_19decrypt(PyObject *__pyx_v_self, PyO
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 180, __pyx_L3_error)
-    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 180, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 182, __pyx_L3_error)
+    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 182, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("decrypt", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 180, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("decrypt", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 182, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.decrypt", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5497,9 +5497,9 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_18decrypt(struct __pyx_obj_4ftea_4_te
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 180, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 180, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 182, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 182, __pyx_L1_error) }
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5518,7 +5518,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_18decrypt(struct __pyx_obj_4ftea_4_te
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":196
+/* "ftea/_tea.pyx":198
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -5543,7 +5543,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_into", 0);
 
-  /* "ftea/_tea.pyx":197
+  /* "ftea/_tea.pyx":199
  * 
  *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
@@ -5554,12 +5554,12 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_sumtable.shape[0]) == 64) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_sum_table_must_be_64_bytes_len);
-      __PYX_ERR(0, 197, __pyx_L1_error)
+      __PYX_ERR(0, 199, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":199
+  /* "ftea/_tea.pyx":201
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -5568,7 +5568,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":200
+  /* "ftea/_tea.pyx":202
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = <int64_t> out.shape[0]             # <<<<<<<<<<<<<<
@@ -5577,7 +5577,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
  */
   __pyx_v_out_len = ((int64_t)(__pyx_v_out.shape[0]));
 
-  /* "ftea/_tea.pyx":202
+  /* "ftea/_tea.pyx":204
  *             int64_t out_len = <int64_t> out.shape[0]
  *             int64_t buffer_updated
  *         if out_len < src_len:             # <<<<<<<<<<<<<<
@@ -5587,20 +5587,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
   __pyx_t_1 = ((__pyx_v_out_len < __pyx_v_src_len) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":203
+    /* "ftea/_tea.pyx":205
  *             int64_t buffer_updated
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")             # <<<<<<<<<<<<<<
  *         with nogil:
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 203, __pyx_L1_error)
+    __PYX_ERR(0, 205, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":202
+    /* "ftea/_tea.pyx":204
  *             int64_t out_len = <int64_t> out.shape[0]
  *             int64_t buffer_updated
  *         if out_len < src_len:             # <<<<<<<<<<<<<<
@@ -5609,7 +5609,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
  */
   }
 
-  /* "ftea/_tea.pyx":204
+  /* "ftea/_tea.pyx":206
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -5624,7 +5624,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":205
+        /* "ftea/_tea.pyx":207
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -5633,7 +5633,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":206
+        /* "ftea/_tea.pyx":208
  *         with nogil:
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -5642,7 +5642,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
  */
         __pyx_t_4 = 0;
 
-        /* "ftea/_tea.pyx":207
+        /* "ftea/_tea.pyx":209
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)             # <<<<<<<<<<<<<<
@@ -5651,7 +5651,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
  */
         __pyx_t_5 = 0;
 
-        /* "ftea/_tea.pyx":205
+        /* "ftea/_tea.pyx":207
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_decrypt(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -5661,7 +5661,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
         __pyx_v_buffer_updated = tea_decrypt(((uint32_t *)__pyx_v_self->_key), ((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_sumtable.data) + __pyx_t_3)) ))))), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_4)) ))))), __pyx_v_src_len, ((uint8_t *)(&(*((uint8_t *) ( /* dim=0 */ ((char *) (((uint8_t *) __pyx_v_out.data) + __pyx_t_5)) ))))), __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":204
+      /* "ftea/_tea.pyx":206
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -5680,7 +5680,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
       }
   }
 
-  /* "ftea/_tea.pyx":208
+  /* "ftea/_tea.pyx":210
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -5690,20 +5690,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
   __pyx_t_1 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":209
+    /* "ftea/_tea.pyx":211
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer_updated
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 209, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 211, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 209, __pyx_L1_error)
+    __PYX_ERR(0, 211, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":208
+    /* "ftea/_tea.pyx":210
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -5712,7 +5712,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
  */
   }
 
-  /* "ftea/_tea.pyx":210
+  /* "ftea/_tea.pyx":212
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer_updated             # <<<<<<<<<<<<<<
@@ -5722,7 +5722,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
   __pyx_r = __pyx_v_buffer_updated;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":196
+  /* "ftea/_tea.pyx":198
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -5778,17 +5778,17 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_21decrypt_into(PyObject *__pyx_v_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_sumtable)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decrypt_into", 1, 3, 3, 1); __PYX_ERR(0, 196, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decrypt_into", 1, 3, 3, 1); __PYX_ERR(0, 198, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_out)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decrypt_into", 1, 3, 3, 2); __PYX_ERR(0, 196, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decrypt_into", 1, 3, 3, 2); __PYX_ERR(0, 198, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt_into") < 0)) __PYX_ERR(0, 196, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt_into") < 0)) __PYX_ERR(0, 198, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -5797,13 +5797,13 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_21decrypt_into(PyObject *__pyx_v_self
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 196, __pyx_L3_error)
-    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 196, __pyx_L3_error)
-    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 196, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 198, __pyx_L3_error)
+    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 198, __pyx_L3_error)
+    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 198, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("decrypt_into", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 196, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("decrypt_into", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 198, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.decrypt_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -5825,10 +5825,10 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_20decrypt_into(struct __pyx_obj_4ftea
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_into", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 196, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 196, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 196, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 198, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 198, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 198, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5848,7 +5848,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_20decrypt_into(struct __pyx_obj_4ftea
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":212
+/* "ftea/_tea.pyx":214
  *         return buffer_updated
  * 
  *     cpdef inline bytes decrypt_native_endian(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):             # <<<<<<<<<<<<<<
@@ -5873,7 +5873,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_native_endian", 0);
 
-  /* "ftea/_tea.pyx":213
+  /* "ftea/_tea.pyx":215
  * 
  *     cpdef inline bytes decrypt_native_endian(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
@@ -5884,12 +5884,12 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_sumtable.shape[0]) == 64) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_sum_table_must_be_64_bytes_len);
-      __PYX_ERR(0, 213, __pyx_L1_error)
+      __PYX_ERR(0, 215, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":215
+  /* "ftea/_tea.pyx":217
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -5898,19 +5898,19 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":216
+  /* "ftea/_tea.pyx":218
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             bytes buffer = PyBytes_FromStringAndSize(NULL, <Py_ssize_t> src_len)             # <<<<<<<<<<<<<<
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  */
-  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_src_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = PyBytes_FromStringAndSize(NULL, ((Py_ssize_t)__pyx_v_src_len)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_buffer = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "ftea/_tea.pyx":219
+  /* "ftea/_tea.pyx":221
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  *         if <PyObject *> buffer == NULL:             # <<<<<<<<<<<<<<
@@ -5920,16 +5920,16 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
   __pyx_t_2 = ((((PyObject *)__pyx_v_buffer) == NULL) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":220
+    /* "ftea/_tea.pyx":222
  *             uint8_t *buffer_ptr
  *         if <PyObject *> buffer == NULL:
  *             raise MemoryError             # <<<<<<<<<<<<<<
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:
  */
-    PyErr_NoMemory(); __PYX_ERR(0, 220, __pyx_L1_error)
+    PyErr_NoMemory(); __PYX_ERR(0, 222, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":219
+    /* "ftea/_tea.pyx":221
  *             int64_t buffer_updated
  *             uint8_t *buffer_ptr
  *         if <PyObject *> buffer == NULL:             # <<<<<<<<<<<<<<
@@ -5938,7 +5938,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
  */
   }
 
-  /* "ftea/_tea.pyx":221
+  /* "ftea/_tea.pyx":223
  *         if <PyObject *> buffer == NULL:
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)             # <<<<<<<<<<<<<<
@@ -5947,7 +5947,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
  */
   __pyx_v_buffer_ptr = ((uint8_t *)PyBytes_AS_STRING(__pyx_v_buffer));
 
-  /* "ftea/_tea.pyx":222
+  /* "ftea/_tea.pyx":224
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -5962,7 +5962,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":223
+        /* "ftea/_tea.pyx":225
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:
  *             buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -5971,7 +5971,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":224
+        /* "ftea/_tea.pyx":226
  *         with nogil:
  *             buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -5980,7 +5980,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
  */
         __pyx_t_4 = 0;
 
-        /* "ftea/_tea.pyx":223
+        /* "ftea/_tea.pyx":225
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:
  *             buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -5990,7 +5990,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
         __pyx_v_buffer_updated = tea_decrypt_native_endian(((uint32_t *)__pyx_v_self->_key), ((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_sumtable.data) + __pyx_t_3)) ))))), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_4)) ))))), __pyx_v_src_len, __pyx_v_buffer_ptr, __pyx_v_src_len);
       }
 
-      /* "ftea/_tea.pyx":222
+      /* "ftea/_tea.pyx":224
  *             raise MemoryError
  *         buffer_ptr = <uint8_t *> PyBytes_AS_STRING(buffer)
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -6009,7 +6009,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
       }
   }
 
-  /* "ftea/_tea.pyx":226
+  /* "ftea/_tea.pyx":228
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     buffer_ptr, src_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -6019,20 +6019,20 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
   __pyx_t_2 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "ftea/_tea.pyx":227
+    /* "ftea/_tea.pyx":229
  *                                                     buffer_ptr, src_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer[:buffer_updated]
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 227, __pyx_L1_error)
+    __PYX_ERR(0, 229, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":226
+    /* "ftea/_tea.pyx":228
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     buffer_ptr, src_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -6041,7 +6041,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
  */
   }
 
-  /* "ftea/_tea.pyx":228
+  /* "ftea/_tea.pyx":230
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
@@ -6051,15 +6051,15 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 228, __pyx_L1_error)
+    __PYX_ERR(0, 230, __pyx_L1_error)
   }
-  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_1 = PySequence_GetSlice(__pyx_v_buffer, 0, __pyx_v_buffer_updated); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":212
+  /* "ftea/_tea.pyx":214
  *         return buffer_updated
  * 
  *     cpdef inline bytes decrypt_native_endian(self, const uint8_t[::1] text, const uint8_t[::1] sumtable):             # <<<<<<<<<<<<<<
@@ -6114,11 +6114,11 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_23decrypt_native_endian(PyObject *__p
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_sumtable)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decrypt_native_endian", 1, 2, 2, 1); __PYX_ERR(0, 212, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decrypt_native_endian", 1, 2, 2, 1); __PYX_ERR(0, 214, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt_native_endian") < 0)) __PYX_ERR(0, 212, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt_native_endian") < 0)) __PYX_ERR(0, 214, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6126,12 +6126,12 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_23decrypt_native_endian(PyObject *__p
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 212, __pyx_L3_error)
-    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 212, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 214, __pyx_L3_error)
+    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 214, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("decrypt_native_endian", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 212, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("decrypt_native_endian", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 214, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.decrypt_native_endian", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6153,9 +6153,9 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_22decrypt_native_endian(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_native_endian", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 212, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 212, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 214, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 214, __pyx_L1_error) }
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6174,7 +6174,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_22decrypt_native_endian(struct __pyx_
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":230
+/* "ftea/_tea.pyx":232
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -6199,7 +6199,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_native_endian_into", 0);
 
-  /* "ftea/_tea.pyx":231
+  /* "ftea/_tea.pyx":233
  * 
  *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
@@ -6210,12 +6210,12 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!(((__pyx_v_sumtable.shape[0]) == 64) != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_sum_table_must_be_64_bytes_len);
-      __PYX_ERR(0, 231, __pyx_L1_error)
+      __PYX_ERR(0, 233, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "ftea/_tea.pyx":233
+  /* "ftea/_tea.pyx":235
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
@@ -6224,7 +6224,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
  */
   __pyx_v_src_len = ((int64_t)(__pyx_v_text.shape[0]));
 
-  /* "ftea/_tea.pyx":234
+  /* "ftea/_tea.pyx":236
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  *             int64_t out_len = <int64_t> out.shape[0]             # <<<<<<<<<<<<<<
@@ -6233,7 +6233,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
  */
   __pyx_v_out_len = ((int64_t)(__pyx_v_out.shape[0]));
 
-  /* "ftea/_tea.pyx":236
+  /* "ftea/_tea.pyx":238
  *             int64_t out_len = <int64_t> out.shape[0]
  *             int64_t buffer_updated
  *         if out_len < src_len:             # <<<<<<<<<<<<<<
@@ -6243,20 +6243,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
   __pyx_t_1 = ((__pyx_v_out_len < __pyx_v_src_len) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":237
+    /* "ftea/_tea.pyx":239
  *             int64_t buffer_updated
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")             # <<<<<<<<<<<<<<
  *         with nogil:
  *             buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 237, __pyx_L1_error)
+    __PYX_ERR(0, 239, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":236
+    /* "ftea/_tea.pyx":238
  *             int64_t out_len = <int64_t> out.shape[0]
  *             int64_t buffer_updated
  *         if out_len < src_len:             # <<<<<<<<<<<<<<
@@ -6265,7 +6265,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
  */
   }
 
-  /* "ftea/_tea.pyx":238
+  /* "ftea/_tea.pyx":240
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -6280,7 +6280,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
       #endif
       /*try:*/ {
 
-        /* "ftea/_tea.pyx":239
+        /* "ftea/_tea.pyx":241
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -6289,7 +6289,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
  */
         __pyx_t_3 = 0;
 
-        /* "ftea/_tea.pyx":240
+        /* "ftea/_tea.pyx":242
  *         with nogil:
  *             buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,             # <<<<<<<<<<<<<<
@@ -6298,7 +6298,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
  */
         __pyx_t_4 = 0;
 
-        /* "ftea/_tea.pyx":241
+        /* "ftea/_tea.pyx":243
  *             buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)             # <<<<<<<<<<<<<<
@@ -6307,7 +6307,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
  */
         __pyx_t_5 = 0;
 
-        /* "ftea/_tea.pyx":239
+        /* "ftea/_tea.pyx":241
  *             raise ValueError("output buffer is too small")
  *         with nogil:
  *             buffer_updated = tea_decrypt_native_endian(<uint32_t *> self._key, <uint32_t *> &sumtable[0],             # <<<<<<<<<<<<<<
@@ -6317,7 +6317,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
         __pyx_v_buffer_updated = tea_decrypt_native_endian(((uint32_t *)__pyx_v_self->_key), ((uint32_t *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_sumtable.data) + __pyx_t_3)) ))))), ((uint8_t const *)(&(*((uint8_t const  *) ( /* dim=0 */ ((char *) (((uint8_t const  *) __pyx_v_text.data) + __pyx_t_4)) ))))), __pyx_v_src_len, ((uint8_t *)(&(*((uint8_t *) ( /* dim=0 */ ((char *) (((uint8_t *) __pyx_v_out.data) + __pyx_t_5)) ))))), __pyx_v_out_len);
       }
 
-      /* "ftea/_tea.pyx":238
+      /* "ftea/_tea.pyx":240
  *         if out_len < src_len:
  *             raise ValueError("output buffer is too small")
  *         with nogil:             # <<<<<<<<<<<<<<
@@ -6336,7 +6336,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
       }
   }
 
-  /* "ftea/_tea.pyx":242
+  /* "ftea/_tea.pyx":244
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -6346,20 +6346,20 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
   __pyx_t_1 = ((__pyx_v_buffer_updated < 0) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "ftea/_tea.pyx":243
+    /* "ftea/_tea.pyx":245
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer_updated
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 243, __pyx_L1_error)
+    __PYX_ERR(0, 245, __pyx_L1_error)
 
-    /* "ftea/_tea.pyx":242
+    /* "ftea/_tea.pyx":244
  *                                                     <const uint8_t *> &text[0], src_len,
  *                                                     <uint8_t *> &out[0], out_len)
  *         if buffer_updated < 0:             # <<<<<<<<<<<<<<
@@ -6368,7 +6368,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
  */
   }
 
-  /* "ftea/_tea.pyx":244
+  /* "ftea/_tea.pyx":246
  *         if buffer_updated < 0:
  *             raise ValueError("encrypt wrong")
  *         return buffer_updated             # <<<<<<<<<<<<<<
@@ -6378,7 +6378,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
   __pyx_r = __pyx_v_buffer_updated;
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":230
+  /* "ftea/_tea.pyx":232
  *         return buffer[:buffer_updated]
  * 
  *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
@@ -6434,17 +6434,17 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_25decrypt_native_endian_into(PyObject
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_sumtable)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decrypt_native_endian_into", 1, 3, 3, 1); __PYX_ERR(0, 230, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decrypt_native_endian_into", 1, 3, 3, 1); __PYX_ERR(0, 232, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_out)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("decrypt_native_endian_into", 1, 3, 3, 2); __PYX_ERR(0, 230, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("decrypt_native_endian_into", 1, 3, 3, 2); __PYX_ERR(0, 232, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt_native_endian_into") < 0)) __PYX_ERR(0, 230, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "decrypt_native_endian_into") < 0)) __PYX_ERR(0, 232, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -6453,13 +6453,13 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_25decrypt_native_endian_into(PyObject
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
-    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 230, __pyx_L3_error)
-    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 230, __pyx_L3_error)
-    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 230, __pyx_L3_error)
+    __pyx_v_text = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[0], 0); if (unlikely(!__pyx_v_text.memview)) __PYX_ERR(0, 232, __pyx_L3_error)
+    __pyx_v_sumtable = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t__const__(values[1], 0); if (unlikely(!__pyx_v_sumtable.memview)) __PYX_ERR(0, 232, __pyx_L3_error)
+    __pyx_v_out = __Pyx_PyObject_to_MemoryviewSlice_dc_nn_uint8_t(values[2], PyBUF_WRITABLE); if (unlikely(!__pyx_v_out.memview)) __PYX_ERR(0, 232, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("decrypt_native_endian_into", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 230, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("decrypt_native_endian_into", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 232, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("ftea._tea.TEA.decrypt_native_endian_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6481,10 +6481,10 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_24decrypt_native_endian_into(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrypt_native_endian_into", 0);
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 230, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 230, __pyx_L1_error) }
-  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 230, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 232, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 232, __pyx_L1_error) }
+  if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 232, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6619,7 +6619,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_28__setstate_cython__(CYTHON_UNUSED s
   return __pyx_r;
 }
 
-/* "ftea/_tea.pyx":246
+/* "ftea/_tea.pyx":248
  *         return buffer_updated
  * 
  * cpdef inline int64_t encrypt_len(int64_t src) nogil:             # <<<<<<<<<<<<<<
@@ -6630,7 +6630,7 @@ static PyObject *__pyx_pw_4ftea_4_tea_1encrypt_len(PyObject *__pyx_self, PyObjec
 static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_encrypt_len(int64_t __pyx_v_src, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int64_t __pyx_r;
 
-  /* "ftea/_tea.pyx":247
+  /* "ftea/_tea.pyx":249
  * 
  * cpdef inline int64_t encrypt_len(int64_t src) nogil:
  *     return encrypt_qq_len(src)             # <<<<<<<<<<<<<<
@@ -6638,7 +6638,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_encrypt_len(int64_t __pyx_v_src
   __pyx_r = encrypt_qq_len(__pyx_v_src);
   goto __pyx_L0;
 
-  /* "ftea/_tea.pyx":246
+  /* "ftea/_tea.pyx":248
  *         return buffer_updated
  * 
  * cpdef inline int64_t encrypt_len(int64_t src) nogil:             # <<<<<<<<<<<<<<
@@ -6662,7 +6662,7 @@ static PyObject *__pyx_pw_4ftea_4_tea_1encrypt_len(PyObject *__pyx_self, PyObjec
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("encrypt_len (wrapper)", 0);
   assert(__pyx_arg_src); {
-    __pyx_v_src = __Pyx_PyInt_As_int64_t(__pyx_arg_src); if (unlikely((__pyx_v_src == ((int64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 246, __pyx_L3_error)
+    __pyx_v_src = __Pyx_PyInt_As_int64_t(__pyx_arg_src); if (unlikely((__pyx_v_src == ((int64_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 248, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6686,7 +6686,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_encrypt_len(CYTHON_UNUSED PyObject *__pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("encrypt_len", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_encrypt_len(__pyx_v_src, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 246, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_encrypt_len(__pyx_v_src, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -19726,11 +19726,20 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
 }
 static struct __pyx_vtabstruct_4ftea_4_tea_TEA __pyx_vtable_4ftea_4_tea_TEA;
 
+static struct __pyx_obj_4ftea_4_tea_TEA *__pyx_freelist_4ftea_4_tea_TEA[8];
+static int __pyx_freecount_4ftea_4_tea_TEA = 0;
+
 static PyObject *__pyx_tp_new_4ftea_4_tea_TEA(PyTypeObject *t, PyObject *a, PyObject *k) {
   struct __pyx_obj_4ftea_4_tea_TEA *p;
   PyObject *o;
-  o = (*t->tp_alloc)(t, 0);
-  if (unlikely(!o)) return 0;
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_4ftea_4_tea_TEA > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_4ftea_4_tea_TEA)))) {
+    o = (PyObject*)__pyx_freelist_4ftea_4_tea_TEA[--__pyx_freecount_4ftea_4_tea_TEA];
+    memset(o, 0, sizeof(struct __pyx_obj_4ftea_4_tea_TEA));
+    (void) PyObject_INIT(o, t);
+  } else {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
   p = ((struct __pyx_obj_4ftea_4_tea_TEA *)o);
   p->__pyx_vtab = __pyx_vtabptr_4ftea_4_tea_TEA;
   if (unlikely(__pyx_pw_4ftea_4_tea_3TEA_1__cinit__(o, a, k) < 0)) goto bad;
@@ -19741,7 +19750,11 @@ static PyObject *__pyx_tp_new_4ftea_4_tea_TEA(PyTypeObject *t, PyObject *a, PyOb
 }
 
 static void __pyx_tp_dealloc_4ftea_4_tea_TEA(PyObject *o) {
-  (*Py_TYPE(o)->tp_free)(o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_4ftea_4_tea_TEA < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_4ftea_4_tea_TEA)))) {
+    __pyx_freelist_4ftea_4_tea_TEA[__pyx_freecount_4ftea_4_tea_TEA++] = ((struct __pyx_obj_4ftea_4_tea_TEA *)o);
+  } else {
+    (*Py_TYPE(o)->tp_free)(o);
+  }
 }
 
 static PyObject *__pyx_getprop_4ftea_4_tea_3TEA_key(PyObject *o, CYTHON_UNUSED void *x) {
@@ -20725,8 +20738,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 65, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(1, 2, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 151, __pyx_L1_error)
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 180, __pyx_L1_error)
@@ -20742,25 +20755,25 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "ftea/_tea.pyx":63
+  /* "ftea/_tea.pyx":65
  *             buffer_updated = tea_encrypt_qq(<uint32_t*>self._key, <const uint8_t *>&text[0],src_len, buffer_ptr, out_len)
  *         if buffer_updated< 0:
  *             raise ValueError("encrypt wrong")             # <<<<<<<<<<<<<<
  *         return buffer[:buffer_updated]
  * 
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_encrypt_wrong); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_encrypt_wrong); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "ftea/_tea.pyx":73
+  /* "ftea/_tea.pyx":75
  * 
  *         if out_len < encrypt_qq_len(src_len):
  *             raise ValueError("output buffer is too small")             # <<<<<<<<<<<<<<
  *         with nogil:
  *             buffer_updated = tea_encrypt_qq(<uint32_t *> self._key, <const uint8_t *> &text[0], src_len,
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_output_buffer_is_too_small); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_output_buffer_is_too_small); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
@@ -21119,16 +21132,16 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_4ftea_4_tea_TEA.decrypt_into = (int64_t (*)(struct __pyx_obj_4ftea_4_tea_TEA *, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch))__pyx_f_4ftea_4_tea_3TEA_decrypt_into;
   __pyx_vtable_4ftea_4_tea_TEA.decrypt_native_endian = (PyObject *(*)(struct __pyx_obj_4ftea_4_tea_TEA *, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch))__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian;
   __pyx_vtable_4ftea_4_tea_TEA.decrypt_native_endian_into = (int64_t (*)(struct __pyx_obj_4ftea_4_tea_TEA *, __Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice, int __pyx_skip_dispatch))__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into;
-  if (PyType_Ready(&__pyx_type_4ftea_4_tea_TEA) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_4ftea_4_tea_TEA) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_4ftea_4_tea_TEA.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_4ftea_4_tea_TEA.tp_dictoffset && __pyx_type_4ftea_4_tea_TEA.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_4ftea_4_tea_TEA.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  if (__Pyx_SetVtable(__pyx_type_4ftea_4_tea_TEA.tp_dict, __pyx_vtabptr_4ftea_4_tea_TEA) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TEA, (PyObject *)&__pyx_type_4ftea_4_tea_TEA) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_4ftea_4_tea_TEA) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_4ftea_4_tea_TEA.tp_dict, __pyx_vtabptr_4ftea_4_tea_TEA) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TEA, (PyObject *)&__pyx_type_4ftea_4_tea_TEA) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_4ftea_4_tea_TEA) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __pyx_ptype_4ftea_4_tea_TEA = &__pyx_type_4ftea_4_tea_TEA;
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;

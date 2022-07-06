@@ -8,6 +8,8 @@ from cpython.bytes cimport PyBytes_FromStringAndSize, PyBytes_AS_STRING
 
 from ftea.tea cimport tea_encrypt_qq,tea_encrypt, tea_encrypt_native_endian, tea_decrypt_qq,tea_decrypt,tea_decrypt_native_endian, encrypt_qq_len, swap_uint32, SHOULD_SWAP
 
+@cython.freelist(8)
+@cython.no_gc
 @cython.final
 cdef class TEA:
     cdef uint8_t _key[16]
