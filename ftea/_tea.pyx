@@ -3,6 +3,7 @@ from libc.stdint cimport uint8_t, uint32_t, int64_t
 from libc.string cimport memcpy
 cimport cython
 
+from cpython.pycapsule cimport PyCapsule_New
 from cpython.object cimport PyObject
 from cpython.bytes cimport PyBytes_FromStringAndSize, PyBytes_AS_STRING
 
@@ -247,3 +248,12 @@ cdef class TEA:
 
 cpdef inline int64_t encrypt_len(int64_t src) nogil:
     return encrypt_qq_len(src)
+
+
+ftea_encrypt_qq = PyCapsule_New(<void*>tea_encrypt_qq, "ftea.ftea_encrypt_qq", NULL)
+ftea_decrypt_qq = PyCapsule_New(<void*>tea_decrypt_qq, "ftea.ftea_decrypt_qq", NULL)
+ftea_encrypt = PyCapsule_New(<void*>tea_encrypt, "ftea.ftea_encrypt", NULL)
+ftea_decrypt = PyCapsule_New(<void*>tea_decrypt, "ftea.ftea_decrypt", NULL)
+ftea_encrypt_native_endian = PyCapsule_New(<void*>tea_encrypt_native_endian, "ftea.ftea_encrypt_native_endian", NULL)
+ftea_decrypt_native_endian = PyCapsule_New(<void*>tea_decrypt_native_endian, "ftea.ftea_decrypt_native_endian", NULL)
+ftea_encrypt_len = PyCapsule_New(<void*>encrypt_qq_len, "ftea.ftea_encrypt_len", NULL)

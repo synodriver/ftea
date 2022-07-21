@@ -60,7 +60,7 @@ def main():
     setup(
         name="ftea",
         version=version,
-        url="https://github.com/synodriver/stea",
+        url="https://github.com/synodriver/ftea",
         packages=packages,
         keywords=["tea"],
         description="tea encrypt and decrypt",
