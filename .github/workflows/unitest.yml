@@ -26,7 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install --upgrade setuptools
         python -m pip install --upgrade wheel
-        pip install flake8 pytest pytea2
+        pip install flake8 pytest pytea2 rtea
         pip install cython
     - name: build_whl
       run: |
