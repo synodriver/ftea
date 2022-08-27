@@ -66,7 +66,7 @@ cdef class TEA:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
 
-    cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):
+    cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = <int64_t> out.shape[0]
@@ -98,7 +98,7 @@ cdef class TEA:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
 
-    cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+    cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
@@ -133,7 +133,7 @@ cdef class TEA:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
 
-    cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+    cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
@@ -165,7 +165,7 @@ cdef class TEA:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
 
-    cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):
+    cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
             int64_t out_len = <int64_t> out.shape[0]
@@ -196,7 +196,7 @@ cdef class TEA:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
 
-    cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+    cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
         cdef:
             int64_t src_len = <int64_t> text.shape[0]
@@ -230,7 +230,7 @@ cdef class TEA:
             raise ValueError("encrypt wrong")
         return buffer[:buffer_updated]
 
-    cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+    cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
         cdef:
             int64_t src_len = <int64_t> text.shape[0]

@@ -1422,11 +1422,6 @@ static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject 
 /* None.proto */
 static CYTHON_INLINE void __Pyx_RaiseUnboundLocalError(const char *varname);
 
-/* WriteUnraisableException.proto */
-static void __Pyx_WriteUnraisable(const char *name, int clineno,
-                                  int lineno, const char *filename,
-                                  int full_traceback, int nogil);
-
 /* ArgTypeTest.proto */
 #define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
     ((likely((Py_TYPE(obj) == type) | (none_allowed && (obj == Py_None)))) ? 1 :\
@@ -2978,7 +2973,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_qq(struct __pyx_
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
  * 
- *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):
+ *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:
  */
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
@@ -3069,7 +3064,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_2encrypt_qq(struct __pyx_obj_4ftea_4_
 /* "ftea/_tea.pyx":69
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  */
@@ -3091,7 +3086,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
   __Pyx_RefNannySetupContext("encrypt_qq_into", 0);
 
   /* "ftea/_tea.pyx":71
- *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):
+ *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
  *             int64_t out_len = <int64_t> out.shape[0]
@@ -3247,7 +3242,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
   /* "ftea/_tea.pyx":69
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t encrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  */
@@ -3255,8 +3250,8 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(struct __p
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_WriteUnraisable("ftea._tea.TEA.encrypt_qq_into", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
-  __pyx_r = 0;
+  __Pyx_AddTraceback("ftea._tea.TEA.encrypt_qq_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1L;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -3330,7 +3325,8 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_5encrypt_qq_into(PyObject *__pyx_v_se
 static PyObject *__pyx_pf_4ftea_4_tea_3TEA_4encrypt_qq_into(struct __pyx_obj_4ftea_4_tea_TEA *__pyx_v_self, __Pyx_memviewslice __pyx_v_text, __Pyx_memviewslice __pyx_v_out) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int64_t __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3338,15 +3334,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_4encrypt_qq_into(struct __pyx_obj_4ft
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 69, __pyx_L1_error) }
   if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 69, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(__pyx_v_self, __pyx_v_text, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt_qq_into(__pyx_v_self, __pyx_v_text, __pyx_v_out, 1); if (unlikely(__pyx_t_1 == ((int64_t)-1L))) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int64_t(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("ftea._tea.TEA.encrypt_qq_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3549,7 +3546,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt(struct __pyx_obj
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
  * 
- *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+ *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
  */
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
@@ -3680,7 +3677,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_6encrypt(struct __pyx_obj_4ftea_4_tea
 /* "ftea/_tea.pyx":101
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  */
@@ -3704,7 +3701,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
 
   /* "ftea/_tea.pyx":102
  * 
- *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+ *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
@@ -3884,7 +3881,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
   /* "ftea/_tea.pyx":101
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t encrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  */
@@ -3892,8 +3889,8 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_into(struct __pyx_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_WriteUnraisable("ftea._tea.TEA.encrypt_into", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
-  __pyx_r = 0;
+  __Pyx_AddTraceback("ftea._tea.TEA.encrypt_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1L;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -3978,7 +3975,8 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_9encrypt_into(PyObject *__pyx_v_self,
 static PyObject *__pyx_pf_4ftea_4_tea_3TEA_8encrypt_into(struct __pyx_obj_4ftea_4_tea_TEA *__pyx_v_self, __Pyx_memviewslice __pyx_v_text, __Pyx_memviewslice __pyx_v_sumtable, __Pyx_memviewslice __pyx_v_out) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int64_t __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3987,15 +3985,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_8encrypt_into(struct __pyx_obj_4ftea_
   if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 101, __pyx_L1_error) }
   if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 101, __pyx_L1_error) }
   if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 101, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1); if (unlikely(__pyx_t_1 == ((int64_t)-1L))) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int64_t(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("ftea._tea.TEA.encrypt_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4215,7 +4214,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian(st
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
  * 
- *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+ *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
  */
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
@@ -4346,7 +4345,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_10encrypt_native_endian(struct __pyx_
 /* "ftea/_tea.pyx":136
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  */
@@ -4370,7 +4369,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
 
   /* "ftea/_tea.pyx":137
  * 
- *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+ *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
@@ -4550,7 +4549,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
   /* "ftea/_tea.pyx":136
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t encrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  */
@@ -4558,8 +4557,8 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_WriteUnraisable("ftea._tea.TEA.encrypt_native_endian_into", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
-  __pyx_r = 0;
+  __Pyx_AddTraceback("ftea._tea.TEA.encrypt_native_endian_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1L;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -4644,7 +4643,8 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_13encrypt_native_endian_into(PyObject
 static PyObject *__pyx_pf_4ftea_4_tea_3TEA_12encrypt_native_endian_into(struct __pyx_obj_4ftea_4_tea_TEA *__pyx_v_self, __Pyx_memviewslice __pyx_v_text, __Pyx_memviewslice __pyx_v_sumtable, __Pyx_memviewslice __pyx_v_out) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int64_t __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4653,15 +4653,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_12encrypt_native_endian_into(struct _
   if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 136, __pyx_L1_error) }
   if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 136, __pyx_L1_error) }
   if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 136, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_encrypt_native_endian_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1); if (unlikely(__pyx_t_1 == ((int64_t)-1L))) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int64_t(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("ftea._tea.TEA.encrypt_native_endian_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4845,7 +4846,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_qq(struct __pyx_
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
  * 
- *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):
+ *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:
  */
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
@@ -4936,7 +4937,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_14decrypt_qq(struct __pyx_obj_4ftea_4
 /* "ftea/_tea.pyx":168
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  */
@@ -4958,7 +4959,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
   __Pyx_RefNannySetupContext("decrypt_qq_into", 0);
 
   /* "ftea/_tea.pyx":170
- *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):
+ *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]             # <<<<<<<<<<<<<<
  *             int64_t out_len = <int64_t> out.shape[0]
@@ -5114,7 +5115,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
   /* "ftea/_tea.pyx":168
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t decrypt_qq_into(self, const uint8_t[::1] text, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
  */
@@ -5122,8 +5123,8 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(struct __p
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_WriteUnraisable("ftea._tea.TEA.decrypt_qq_into", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
-  __pyx_r = 0;
+  __Pyx_AddTraceback("ftea._tea.TEA.decrypt_qq_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1L;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -5197,7 +5198,8 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_17decrypt_qq_into(PyObject *__pyx_v_s
 static PyObject *__pyx_pf_4ftea_4_tea_3TEA_16decrypt_qq_into(struct __pyx_obj_4ftea_4_tea_TEA *__pyx_v_self, __Pyx_memviewslice __pyx_v_text, __Pyx_memviewslice __pyx_v_out) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int64_t __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -5205,15 +5207,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_16decrypt_qq_into(struct __pyx_obj_4f
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 168, __pyx_L1_error) }
   if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 168, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(__pyx_v_self, __pyx_v_text, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt_qq_into(__pyx_v_self, __pyx_v_text, __pyx_v_out, 1); if (unlikely(__pyx_t_1 == ((int64_t)-1L))) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int64_t(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("ftea._tea.TEA.decrypt_qq_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -5406,7 +5409,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt(struct __pyx_obj
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
  * 
- *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+ *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
  */
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
@@ -5537,7 +5540,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_18decrypt(struct __pyx_obj_4ftea_4_te
 /* "ftea/_tea.pyx":199
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  */
@@ -5561,7 +5564,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
 
   /* "ftea/_tea.pyx":200
  * 
- *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+ *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
@@ -5741,7 +5744,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
   /* "ftea/_tea.pyx":199
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t decrypt_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  */
@@ -5749,8 +5752,8 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_into(struct __pyx_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_WriteUnraisable("ftea._tea.TEA.decrypt_into", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
-  __pyx_r = 0;
+  __Pyx_AddTraceback("ftea._tea.TEA.decrypt_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1L;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -5835,7 +5838,8 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_21decrypt_into(PyObject *__pyx_v_self
 static PyObject *__pyx_pf_4ftea_4_tea_3TEA_20decrypt_into(struct __pyx_obj_4ftea_4_tea_TEA *__pyx_v_self, __Pyx_memviewslice __pyx_v_text, __Pyx_memviewslice __pyx_v_sumtable, __Pyx_memviewslice __pyx_v_out) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int64_t __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -5844,15 +5848,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_20decrypt_into(struct __pyx_obj_4ftea
   if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 199, __pyx_L1_error) }
   if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 199, __pyx_L1_error) }
   if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 199, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1); if (unlikely(__pyx_t_1 == ((int64_t)-1L))) __PYX_ERR(0, 199, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int64_t(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("ftea._tea.TEA.decrypt_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -6062,7 +6067,7 @@ static CYTHON_INLINE PyObject *__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian(st
  *             raise ValueError("encrypt wrong")
  *         return buffer[:buffer_updated]             # <<<<<<<<<<<<<<
  * 
- *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+ *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
  */
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(__pyx_v_buffer == Py_None)) {
@@ -6193,7 +6198,7 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_22decrypt_native_endian(struct __pyx_
 /* "ftea/_tea.pyx":233
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  */
@@ -6217,7 +6222,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
 
   /* "ftea/_tea.pyx":234
  * 
- *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):
+ *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"             # <<<<<<<<<<<<<<
  *         cdef:
  *             int64_t src_len = <int64_t> text.shape[0]
@@ -6397,7 +6402,7 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
   /* "ftea/_tea.pyx":233
  *         return buffer[:buffer_updated]
  * 
- *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out):             # <<<<<<<<<<<<<<
+ *     cpdef inline int64_t decrypt_native_endian_into(self, const uint8_t[::1] text, const uint8_t[::1] sumtable, uint8_t[::1] out) except -1:             # <<<<<<<<<<<<<<
  *         assert sumtable.shape[0] == 64, "sum table must be 64 bytes len"
  *         cdef:
  */
@@ -6405,8 +6410,8 @@ static CYTHON_INLINE int64_t __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_WriteUnraisable("ftea._tea.TEA.decrypt_native_endian_into", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
-  __pyx_r = 0;
+  __Pyx_AddTraceback("ftea._tea.TEA.decrypt_native_endian_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1L;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -6491,7 +6496,8 @@ static PyObject *__pyx_pw_4ftea_4_tea_3TEA_25decrypt_native_endian_into(PyObject
 static PyObject *__pyx_pf_4ftea_4_tea_3TEA_24decrypt_native_endian_into(struct __pyx_obj_4ftea_4_tea_TEA *__pyx_v_self, __Pyx_memviewslice __pyx_v_text, __Pyx_memviewslice __pyx_v_sumtable, __Pyx_memviewslice __pyx_v_out) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
+  int64_t __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -6500,15 +6506,16 @@ static PyObject *__pyx_pf_4ftea_4_tea_3TEA_24decrypt_native_endian_into(struct _
   if (unlikely(!__pyx_v_text.memview)) { __Pyx_RaiseUnboundLocalError("text"); __PYX_ERR(0, 233, __pyx_L1_error) }
   if (unlikely(!__pyx_v_sumtable.memview)) { __Pyx_RaiseUnboundLocalError("sumtable"); __PYX_ERR(0, 233, __pyx_L1_error) }
   if (unlikely(!__pyx_v_out.memview)) { __Pyx_RaiseUnboundLocalError("out"); __PYX_ERR(0, 233, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int64_t(__pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_1 = __pyx_f_4ftea_4_tea_3TEA_decrypt_native_endian_into(__pyx_v_self, __pyx_v_text, __pyx_v_sumtable, __pyx_v_out, 1); if (unlikely(__pyx_t_1 == ((int64_t)-1L))) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int64_t(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_AddTraceback("ftea._tea.TEA.decrypt_native_endian_into", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -22280,48 +22287,6 @@ bad:
 /* None */
 static CYTHON_INLINE void __Pyx_RaiseUnboundLocalError(const char *varname) {
     PyErr_Format(PyExc_UnboundLocalError, "local variable '%s' referenced before assignment", varname);
-}
-
-/* WriteUnraisableException */
-static void __Pyx_WriteUnraisable(const char *name, CYTHON_UNUSED int clineno,
-                                  CYTHON_UNUSED int lineno, CYTHON_UNUSED const char *filename,
-                                  int full_traceback, CYTHON_UNUSED int nogil) {
-    PyObject *old_exc, *old_val, *old_tb;
-    PyObject *ctx;
-    __Pyx_PyThreadState_declare
-#ifdef WITH_THREAD
-    PyGILState_STATE state;
-    if (nogil)
-        state = PyGILState_Ensure();
-#ifdef _MSC_VER
-    else state = (PyGILState_STATE)-1;
-#endif
-#endif
-    __Pyx_PyThreadState_assign
-    __Pyx_ErrFetch(&old_exc, &old_val, &old_tb);
-    if (full_traceback) {
-        Py_XINCREF(old_exc);
-        Py_XINCREF(old_val);
-        Py_XINCREF(old_tb);
-        __Pyx_ErrRestore(old_exc, old_val, old_tb);
-        PyErr_PrintEx(1);
-    }
-    #if PY_MAJOR_VERSION < 3
-    ctx = PyString_FromString(name);
-    #else
-    ctx = PyUnicode_FromString(name);
-    #endif
-    __Pyx_ErrRestore(old_exc, old_val, old_tb);
-    if (!ctx) {
-        PyErr_WriteUnraisable(Py_None);
-    } else {
-        PyErr_WriteUnraisable(ctx);
-        Py_DECREF(ctx);
-    }
-#ifdef WITH_THREAD
-    if (nogil)
-        PyGILState_Release(state);
-#endif
 }
 
 /* ArgTypeTest */
