@@ -27,7 +27,7 @@ uint8_t is_le()
     return *(uint8_t*)&data;
 }
 
-#ifdef _WIN32
+#if defined(_WIN64) || defined(_WIN32)
     #define swap_uint32 _byteswap_ulong
 #else
     #define swap_uint32 __builtin_bswap32
