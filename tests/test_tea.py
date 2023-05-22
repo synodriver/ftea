@@ -2,32 +2,36 @@
 Copyright (c) 2008-2021 synodriver <synodriver@gmail.com>
 """
 import sys
+
 sys.path.append(".")
 
+import time
 from random import randint
 from unittest import TestCase
-import time
 
 import pytea
-import ftea
 import rtea
+
+import ftea
 
 
 class TestTea(TestCase):
     def setUp(self) -> None:
-        self.old = pytea.TEA(b'1234567812345678')
-        self.new = ftea.TEA(b'1234567812345678')
+        self.old = pytea.TEA(b"1234567812345678")
+        self.new = ftea.TEA(b"1234567812345678")
 
     def test_encrypt_rs(self):
         for i in range(10000):
             rand_data = bytes(randint(0, 255) for _ in range(randint(1, 1000)))
             encoded = self.new.encrypt_qq(rand_data)
-            self.assertEqual(rtea.qqtea_decrypt(encoded, b'1234567812345678'), rand_data)
+            self.assertEqual(
+                rtea.qqtea_decrypt(encoded, b"1234567812345678"), rand_data
+            )
 
     def test_decrypt_rs(self):
         for i in range(10000):
             rand_data = bytes(randint(0, 255) for _ in range(randint(1, 1000)))
-            encoded = rtea.qqtea_encrypt(rand_data, b'1234567812345678')
+            encoded = rtea.qqtea_encrypt(rand_data, b"1234567812345678")
             self.assertEqual(self.new.decrypt_qq(encoded), rand_data)
 
     def test_decrypt(self):
@@ -49,8 +53,9 @@ class TestTea(TestCase):
 
         start = time.time()
         for i in range(1000):
-            rtea.qqtea_encrypt(data, b'1234567812345678')
+            rtea.qqtea_encrypt(data, b"1234567812345678")
         print(f"rtea spend {time.time() - start}")
+
 
 if __name__ == "__main__":
     import unittest

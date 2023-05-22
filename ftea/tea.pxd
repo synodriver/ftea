@@ -1,5 +1,6 @@
 # cython: language_level=3
-from libc.stdint cimport uint8_t, uint32_t, int64_t
+from libc.stdint cimport int64_t, uint8_t, uint32_t
+
 
 cdef extern from "simplecrypto.h" nogil:
     int64_t tea_encrypt_qq(const uint32_t t[4], const uint8_t *src, int64_t src_len, uint8_t *out, int64_t out_len)

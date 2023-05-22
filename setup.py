@@ -5,14 +5,15 @@ import sys
 from collections import defaultdict
 
 from Cython.Build import cythonize
-from setuptools import Extension, setup, find_packages
+from setuptools import Extension, find_packages, setup
 from setuptools.command.build_ext import build_ext
 
-BUILD_ARGS = defaultdict(lambda: ['-O3', '-g0'])
+BUILD_ARGS = defaultdict(lambda: ["-O3", "-g0"])
 
 for compiler, args in [
-    ('msvc', ['/EHsc', '/DHUNSPELL_STATIC', "/Oi", "/O2", "/Ot"]),
-    ('gcc', ['-O3', '-g0'])]:
+    ("msvc", ["/EHsc", "/DHUNSPELL_STATIC", "/Oi", "/O2", "/Ot"]),
+    ("gcc", ["-O3", "-g0"]),
+]:
     BUILD_ARGS[compiler] = args
 
 
@@ -30,11 +31,19 @@ if sys.byteorder != "little":
     macro_base.append(("WORDS_BIGENDIAN", None))
 
 extensions = [
-    Extension("ftea._tea", ["ftea/_tea.pyx", 'simple-crypto/tea.c'],
-              include_dirs=[f"./simple-crypto"],
-              library_dirs=[f"./simple-crypto"],
-              define_macros=macro_base
-              ),
+    Extension(
+        "ftea._tea",
+        ["ftea/_tea.pyx", "simple-crypto/tea.c"],
+        include_dirs=[f"./simple-crypto"],
+        library_dirs=[f"./simple-crypto"],
+        define_macros=macro_base,
+    ),
+    Extension(
+        "ftea._xtea",
+        ["ftea/_xtea.pyx", "xtea-c/xtea.c"],
+        include_dirs=[f"./xtea-c"],
+        library_dirs=[f"./xtea-c"],
+    ),
 ]
 
 
@@ -44,14 +53,16 @@ def get_dis():
 
 
 def get_version() -> str:
-    path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "ftea", "__init__.py")
+    path = os.path.join(
+        os.path.abspath(os.path.dirname(__file__)), "ftea", "__init__.py"
+    )
     with open(path, "r", encoding="utf-8") as f:
         data = f.read()
     result = re.findall(r"(?<=__version__ = \")\S+(?=\")", data)
     return result[0]
 
 
-packages = find_packages(exclude=('test', 'tests.*', "test*"))
+packages = find_packages(exclude=("test", "tests.*", "test*"))
 
 
 def main():
@@ -70,11 +81,11 @@ def main():
         author_email="diguohuangjiajinweijun@gmail.com",
         python_requires=">=3.6",
         install_requires=["cython"],
-        license='BSD',
+        license="BSD",
         classifiers=[
             "Development Status :: 4 - Beta",
             "Operating System :: OS Independent",
-            'License :: OSI Approved :: BSD License',
+            "License :: OSI Approved :: BSD License",
             "Programming Language :: C",
             "Programming Language :: Cython",
             "Programming Language :: Python",
@@ -84,16 +95,20 @@ def main():
             "Programming Language :: Python :: 3.9",
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
-            "Programming Language :: Python :: Implementation :: CPython"
+            "Programming Language :: Python :: Implementation :: CPython",
         ],
         include_package_data=True,
         zip_safe=False,
-        cmdclass={'build_ext': build_ext_compiler_check},
-        ext_modules=cythonize(extensions,
-                              compiler_directives={"cdivision": True,
-                                                   "embedsignature": True,
-                                                   "boundscheck": False,
-                                                   "wraparound": False}),
+        cmdclass={"build_ext": build_ext_compiler_check},
+        ext_modules=cythonize(
+            extensions,
+            compiler_directives={
+                "cdivision": True,
+                "embedsignature": True,
+                "boundscheck": False,
+                "wraparound": False,
+            },
+        ),
     )
 
 

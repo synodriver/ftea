@@ -1,13 +1,15 @@
 # cython: language_level=3
-from libc.stdint cimport uint8_t, uint32_t, int64_t
-from libc.string cimport memcpy
 cimport cython
-
-from cpython.pycapsule cimport PyCapsule_New
+from cpython.bytes cimport PyBytes_AS_STRING, PyBytes_FromStringAndSize
 from cpython.object cimport PyObject
-from cpython.bytes cimport PyBytes_FromStringAndSize, PyBytes_AS_STRING
+from cpython.pycapsule cimport PyCapsule_New
+from libc.stdint cimport int64_t, uint8_t, uint32_t
+from libc.string cimport memcpy
 
-from ftea.tea cimport tea_encrypt_qq,tea_encrypt, tea_encrypt_native_endian, tea_decrypt_qq,tea_decrypt,tea_decrypt_native_endian, encrypt_qq_len, swap_uint32, SHOULD_SWAP
+from ftea.tea cimport (SHOULD_SWAP, encrypt_qq_len, swap_uint32, tea_decrypt,
+                       tea_decrypt_native_endian, tea_decrypt_qq, tea_encrypt,
+                       tea_encrypt_native_endian, tea_encrypt_qq)
+
 
 @cython.freelist(8)
 @cython.no_gc

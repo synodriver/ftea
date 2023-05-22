@@ -1,3 +1,6 @@
 [submodule "simple-crypto"]
 	path = simple-crypto
 	url = https://github.com/synodriver/simple-crypto
+[submodule "xtea-c"]
+	path = xtea-c
+	url = https://github.com/shixiongfei/xtea
