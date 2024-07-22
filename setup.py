@@ -26,9 +26,21 @@ class build_ext_compiler_check(build_ext):
         super().build_extensions()
 
 
+def has_option(name: str) -> bool:
+    if name in sys.argv[1:]:
+        sys.argv.remove(name)
+        return True
+    name = name.strip("-").upper()
+    if os.environ.get(name, None) is not None:
+        return True
+    return False
+
+
 macro_base = []
 if sys.byteorder != "little":
     macro_base.append(("WORDS_BIGENDIAN", None))
+if has_option("--TEA_NORAND"):
+    macro_base.append(("TEA_NORAND", None))
 
 extensions = [
     Extension(
