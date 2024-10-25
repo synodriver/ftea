@@ -5,6 +5,8 @@ import sys
 from collections import defaultdict
 
 from Cython.Build import cythonize
+from Cython.Compiler.Version import version as cython_version
+from packaging.version import Version
 from setuptools import Extension, find_packages, setup
 from setuptools.command.build_ext import build_ext
 
@@ -42,6 +44,27 @@ if sys.byteorder != "little":
 if has_option("--TEA_NORAND"):
     macro_base.append(("TEA_NORAND", None))
 
+if (
+    sys.version_info > (3, 13, 0)
+    and hasattr(sys, "_is_gil_enabled")
+    and not sys._is_gil_enabled()
+):
+    print("build nogil")
+    macro_base.append(
+        ("Py_GIL_DISABLED", "1"),
+    )
+
+compiler_directives = {
+    "cdivision": True,
+    "embedsignature": True,
+    "boundscheck": False,
+    "wraparound": False,
+}
+
+
+if Version(cython_version) >= Version("3.1.0a0"):
+    compiler_directives["freethreading_compatible"] = True
+
 extensions = [
     Extension(
         "ftea._tea",
@@ -55,6 +78,7 @@ extensions = [
         ["ftea/_xtea.pyx", "xtea-c/xtea.c"],
         include_dirs=[f"./xtea-c"],
         library_dirs=[f"./xtea-c"],
+        define_macros=macro_base,
     ),
 ]
 
@@ -106,6 +130,7 @@ def main():
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",
             "Programming Language :: Python :: 3.12",
+            "Programming Language :: Python :: 3.13",
             "Programming Language :: Python :: Implementation :: CPython",
         ],
         include_package_data=True,
@@ -113,12 +138,7 @@ def main():
         cmdclass={"build_ext": build_ext_compiler_check},
         ext_modules=cythonize(
             extensions,
-            compiler_directives={
-                "cdivision": True,
-                "embedsignature": True,
-                "boundscheck": False,
-                "wraparound": False,
-            },
+            compiler_directives=compiler_directives
         ),
     )
 
