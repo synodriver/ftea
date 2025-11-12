@@ -44,11 +44,7 @@ if sys.byteorder != "little":
 if has_option("--TEA_NORAND"):
     macro_base.append(("TEA_NORAND", None))
 
-if (
-    sys.version_info > (3, 13, 0)
-    and hasattr(sys, "_is_gil_enabled")
-    and not sys._is_gil_enabled()
-):
+if sysconfig.get_config_var("Py_GIL_DISABLED"):
     print("build nogil")
     macro_base.append(
         ("Py_GIL_DISABLED", "1"),
