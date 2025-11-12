@@ -2,6 +2,7 @@
 import os
 import re
 import sys
+import sysconfig
 from collections import defaultdict
 
 from Cython.Build import cythonize
